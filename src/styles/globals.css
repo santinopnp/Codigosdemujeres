@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Reset ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: #FFF7F9;
+    color: #2B2B2B;
+    font-family: "Nunito", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  p, span, a, li { margin: 0; }
+
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: #F7C6D0; border-radius: 2px; }
+}
+
+/* ── Flat utility components ────────────────────────────────────────────────── */
+@layer components {
+
+  /* Primary cherry CTA — soft radius */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #E75480;
+    color: #FFFFFF;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+  .btn-primary:hover  { background-color: #D44370; }
+  .btn-primary:active { background-color: #C23860; }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Outlined button */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #E75480;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    border: 2px solid #E75480;
+    border-radius: 8px;
+    padding: 0.625rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+  .btn-outline:hover { background-color: #E75480; color: #FFFFFF; }
+
+  /* Ghost button — soft bordered */
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #2B2B2B;
+    font-family: "Nunito", sans-serif;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    border: 2px solid #F7C6D0;
+    border-radius: 8px;
+    padding: 0.625rem 1.5rem;
+    cursor: pointer;
+    transition: border-color 0.15s ease;
+    text-decoration: none;
+    width: 100%;
+  }
+  .btn-ghost:hover { border-color: #E75480; color: #E75480; }
+
+  /* Card — warm surface */
+  .card {
+    background-color: #FFFFFF;
+    border: 1px solid #F7C6D0;
+    border-radius: 12px;
+  }
+  .card.selected { border-color: #E75480; }
+  .card:hover    { border-color: #E75480; }
+
+  /* Flat text input */
+  .input {
+    width: 100%;
+    background-color: #FFFFFF;
+    border: 2px solid #F7C6D0;
+    border-radius: 8px;
+    color: #2B2B2B;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.875rem;
+    padding: 0.75rem 1rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+  }
+  .input:focus       { border-color: #E75480; }
+  .input::placeholder { color: #9A7B8A; }
+
+  /* Review card with cherry left accent */
+  .review-card {
+    background-color: #FFFFFF;
+    border-left: 3px solid #E75480;
+    border-radius: 0 12px 12px 0;
+    padding: 1rem;
+    flex-shrink: 0;
+    width: 260px;
+  }
+
+  /* Checkout step indicator */
+  .step {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Nunito", sans-serif;
+    font-weight: 700;
+    font-size: 0.875rem;
+    border: 2px solid #F7C6D0;
+    border-radius: 50%;
+    color: #9A7B8A;
+    flex-shrink: 0;
+  }
+  .step.active { border-color: #E75480; color: #E75480; }
+  .step.done   { border-color: #E75480; background-color: #E75480; color: #FFFFFF; }
+
+  /* Label above inputs */
+  .field-label {
+    display: block;
+    font-family: "Nunito", sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #5A3D4A;
+    margin-bottom: 0.375rem;
+  }
+
+  /* Section label — small caps */
+  .section-eyebrow {
+    font-family: "Nunito", sans-serif;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #E75480;
+  }
+
+  /* Divider */
+  .divider { height: 1px; background-color: #F7C6D0; }
+}
+
+/* ── Animations ─────────────────────────────────────────────────────────────── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

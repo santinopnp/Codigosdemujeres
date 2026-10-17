@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Checkout seguro — CÓDIGOS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #FBF7F1;
+      --cherry:  #C2506A;
+      --gold:    #D4A853;
+      --dark:    #3D2B1F;
+      --muted:   #7A6652;
+      --light:   #A89882;
+      --border:  #EAE0D5;
+      --surface: #FFFFFF;
+      --error:   #D94F4F;
+      --success: #4CAF7D;
+    }
+
+    body {
+      background: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      color: var(--dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 48px;
+    }
+
+    /* ── Header ────────────────────────────────── */
+    .brand {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .brand-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      color: var(--cherry);
+    }
+    .brand-sub {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      color: var(--light);
+      text-transform: uppercase;
+      margin-top: 2px;
+    }
+
+    /* ── Card wrapper ──────────────────────────── */
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(194, 80, 106, .08);
+      width: 100%;
+      max-width: 440px;
+      overflow: hidden;
+    }
+
+    /* ── Product summary ───────────────────────── */
+    .product-summary {
+      background: linear-gradient(135deg, #C2506A 0%, #A03A52 100%);
+      padding: 22px 24px 20px;
+      color: #fff;
+    }
+    .product-format {
+      font-size: .7rem;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      opacity: .8;
+      margin-bottom: 4px;
+    }
+    .product-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .price-cop {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+    .price-usd {
+      font-size: .8rem;
+      opacity: .75;
+    }
+    .ref-badge {
+      margin-top: 8px;
+      font-size: .65rem;
+      opacity: .65;
+      letter-spacing: .08em;
+    }
+
+    /* ── Secure badge ──────────────────────────── */
+    .secure-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 24px;
+      background: #F9F4EF;
+      border-bottom: 1px solid var(--border);
+      font-size: .7rem;
+      color: var(--light);
+      letter-spacing: .03em;
+    }
+    .secure-row svg { flex-shrink: 0; }
+
+    /* ── Form ──────────────────────────────────── */
+    .form-body { padding: 24px; }
+
+    .section-label {
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--light);
+      margin-bottom: 14px;
+    }
+
+    .field { margin-bottom: 14px; }
+    .field label {
+      display: block;
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+    .field input, .field select {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Nunito', sans-serif;
+      font-size: .88rem;
+      color: var(--dark);
+      background: var(--surface);
+      transition: border-color .2s;
+      outline: none;
+    }
+    .field input:focus, .field select:focus { border-color: var(--cherry); }
+    .field input::placeholder { color: var(--light); }
+
+    .field-row { display: flex; gap: 12px; }
+    .field-row .field { flex: 1; }
+
+    /* Card number with icon */
+    .card-input-wrap { position: relative; }
+    .card-input-wrap input { padding-right: 44px; letter-spacing: .06em; }
+    .card-icon {
+      position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
+      color: var(--light); pointer-events: none;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 20px 0;
+    }
+
+    /* Cuotas selector */
+    .dues-label {
+      font-size: .72rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .dues-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .dues-btn {
+      padding: 6px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all .18s;
+    }
+    .dues-btn.active {
+      border-color: var(--cherry);
+      background: rgba(194, 80, 106, .08);
+      color: var(--cherry);
+    }
+
+    /* Pay button */
+    .btn-pay {
+      width: 100%;
+      padding: 15px;
+      background: var(--cherry);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background .2s, transform .1s;
+    }
+    .btn-pay:hover:not(:disabled) { background: #A03A52; }
+    .btn-pay:active:not(:disabled) { transform: scale(.98); }
+    .btn-pay:disabled { opacity: .6; cursor: not-allowed; }
+
+    .form-error {
+      background: rgba(217, 79, 79, .09);
+      border: 1px solid rgba(217, 79, 79, .3);
+      color: var(--error);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: .78rem;
+      margin-top: 12px;
+      display: none;
+    }
+
+    /* ── States ────────────────────────────────── */
+    .state { display: none; }
+    .state.active { display: block; }
+
+    /* Loading */
+    .state-center {
+      padding: 60px 24px;
+      text-align: center;
+    }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid var(--border);
+      border-top-color: var(--cherry);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Processing */
+    .processing-icon {
+      width: 48px; height: 48px;
+      background: rgba(194, 80, 106, .1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 14px;
+    }
+
+    /* 3DS iframe */
+    .threeds-container {
+      padding: 0;
+      background: var(--cream);
+    }
+    .threeds-header {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      font-size: .78rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .threeds-frame {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: block;
+    }
+
+    /* Polling dots */
+    .polling-dots span {
+      animation: blink 1.2s infinite;
+      animation-fill-mode: both;
+    }
+    .polling-dots span:nth-child(2) { animation-delay: .2s; }
+    .polling-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes blink { 0%,80%,100% { opacity: 0; } 40% { opacity: 1; } }
+
+    /* Success */
+    .success-icon {
+      width: 56px; height: 56px;
+      background: rgba(76, 175, 125, .12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+    .btn-secondary {
+      display: inline-block;
+      padding: 12px 28px;
+      background: transparent;
+      border: 1.5px solid var(--cherry);
+      border-radius: 8px;
+      color: var(--cherry);
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: .9rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: all .18s;
+    }
+    .btn-secondary:hover { background: rgba(194, 80, 106, .07); }
+
+    /* Error */
+    .error-icon {
+      width: 56px; height: 56px;
+      background: rgba(217, 79, 79, .1);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .state-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+    .state-msg {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+    .state-detail {
+      font-size: .75rem;
+      color: var(--light);
+    }
+
+    /* Identity banner (shown when name/email come from the previous step) */
+    .identity-banner {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #F9F4EF;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+    .identity-avatar {
+      width: 32px; height: 32px;
+      background: rgba(194, 80, 106, .12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .identity-text { flex: 1; overflow: hidden; }
+    .identity-name  { font-size: .82rem; font-weight: 700; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .identity-email { font-size: .72rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* Footer */
+    .checkout-footer {
+      text-align: center;
+      margin-top: 18px;
+      font-size: .68rem;
+      color: var(--light);
+      letter-spacing: .03em;
+    }
+    .checkout-footer a {
+      color: var(--cherry);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Brand -->
+  <div class="brand">
+    <div class="brand-name">CÓDIGOS</div>
+    <div class="brand-sub">Checkout seguro</div>
+  </div>
+
+  <div class="card">
+
+    <!-- ── Product summary ──────────────────────── -->
+    <div id="product-summary" class="product-summary" style="display:none">
+      <div id="product-format" class="product-format"></div>
+      <div id="product-name"   class="product-name"></div>
+      <div class="price-row">
+        <span id="price-cop" class="price-cop"></span>
+        <span id="price-usd" class="price-usd"></span>
+      </div>
+      <div id="order-ref" class="ref-badge"></div>
+    </div>
+
+    <!-- ── Secure badge ──────────────────────────── -->
+    <div class="secure-row">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+      </svg>
+      Pago 100% seguro · Datos cifrados · Nunca almacenamos tu tarjeta
+    </div>
+
+    <!-- ═══════ STATE: loading ════════════════════ -->
+    <div id="state-loading" class="state active">
+      <div class="state-center">
+        <div class="spinner"></div>
+        <p class="state-msg">Cargando tu orden…</p>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: form ═══════════════════════ -->
+    <div id="state-form" class="state">
+      <div class="form-body">
+
+        <form id="payment-form" autocomplete="on">
+
+          <!-- Identity banner: shown when name/email are pre-filled from the previous step -->
+          <div id="identity-banner" class="identity-banner" style="display:none">
+            <div class="identity-avatar">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
+              </svg>
+            </div>
+            <div class="identity-text">
+              <div id="identity-name"  class="identity-name"></div>
+              <div id="identity-email" class="identity-email"></div>
+            </div>
+          </div>
+
+          <!-- Name + email fields: shown only when NOT pre-filled -->
+          <div id="identity-fields">
+            <div class="section-label">Tus datos</div>
+            <div class="field-row">
+              <div class="field">
+                <label for="name">Nombre</label>
+                <input id="name" type="text" placeholder="María" autocomplete="given-name" />
+              </div>
+              <div class="field">
+                <label for="lastName">Apellido</label>
+                <input id="lastName" type="text" placeholder="García" autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" type="text" placeholder="maria@correo.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="docType">Tipo doc.</label>
+              <select id="docType">
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="NIT">NIT</option>
+                <option value="PP">Pasaporte</option>
+                <option value="DNI">DNI</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="docNumber">Número de documento</label>
+              <input id="docNumber" type="text" placeholder="1000000000" inputmode="numeric" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="phone">Celular</label>
+            <input id="phone" type="tel" placeholder="3001234567" autocomplete="tel" inputmode="tel" />
+          </div>
+
+          <div class="divider"></div>
+          <div class="section-label">Información de tu tarjeta</div>
+
+          <div class="field">
+            <label for="cardNumber">Número de tarjeta</label>
+            <div class="card-input-wrap">
+              <input id="cardNumber" type="text" placeholder="0000 0000 0000 0000"
+                autocomplete="cc-number" inputmode="numeric" maxlength="19" required />
+              <span class="card-icon">
+                <svg width="20" height="14" viewBox="0 0 32 22" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="1" y="1" width="30" height="20" rx="3"/><path d="M1 7h30"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="expMonth">Mes</label>
+              <select id="expMonth" autocomplete="cc-exp-month" required>
+                <option value="">MM</option>
+                <option value="01">01</option><option value="02">02</option>
+                <option value="03">03</option><option value="04">04</option>
+                <option value="05">05</option><option value="06">06</option>
+                <option value="07">07</option><option value="08">08</option>
+                <option value="09">09</option><option value="10">10</option>
+                <option value="11">11</option><option value="12">12</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="expYear">Año</label>
+              <select id="expYear" autocomplete="cc-exp-year" required>
+                <option value="">AAAA</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cvc">CVC</label>
+              <input id="cvc" type="text" placeholder="123" maxlength="4"
+                autocomplete="cc-csc" inputmode="numeric" required />
+            </div>
+          </div>
+
+          <div class="divider"></div>
+          <div class="dues-label">Cuotas</div>
+          <div class="dues-row" id="dues-row">
+            <button type="button" class="dues-btn active" data-dues="1">1 cuota</button>
+            <button type="button" class="dues-btn" data-dues="3">3 cuotas</button>
+            <button type="button" class="dues-btn" data-dues="6">6 cuotas</button>
+            <button type="button" class="dues-btn" data-dues="12">12 cuotas</button>
+          </div>
+
+          <button id="btn-pay" type="submit" class="btn-pay">
+            Pagar ahora
+          </button>
+          <div id="form-error" class="form-error"></div>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: processing ════════════════ -->
+    <div id="state-processing" class="state">
+      <div class="state-center">
+        <div class="processing-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+          </svg>
+        </div>
+        <p class="state-title" id="processing-msg">Procesando tu pago…</p>
+        <p class="state-msg">Por favor no cierres esta ventana</p>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: 3DS bank redirect ═════════ -->
+    <div id="state-3ds" class="state">
+      <div class="threeds-container">
+        <div class="threeds-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2.5">
+            <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
+          </svg>
+          Autenticación bancaria 3D Secure — por favor completa la verificación
+        </div>
+        <iframe id="threeds-iframe" class="threeds-frame"
+          sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation allow-popups"></iframe>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: polling ════════════════════ -->
+    <div id="state-polling" class="state">
+      <div class="state-center">
+        <div class="spinner"></div>
+        <p class="state-title">Confirmando pago<span class="polling-dots"><span>.</span><span>.</span><span>.</span></span></p>
+        <p id="polling-detail" class="state-detail"></p>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: success ════════════════════ -->
+    <div id="state-success" class="state">
+      <div class="state-center">
+        <div class="success-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4CAF7D" stroke-width="2.5">
+            <path d="M20 6L9 17l-5-5"/>
+          </svg>
+        </div>
+        <p class="state-title">¡Pago exitoso!</p>
+        <p class="state-msg" id="success-detail">Tu compra fue confirmada. Revisa tu correo.</p>
+        <a id="btn-library" href="#" class="btn-secondary">Acceder a mi biblioteca →</a>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: error ══════════════════════ -->
+    <div id="state-error" class="state">
+      <div class="state-center">
+        <div class="error-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D94F4F" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+          </svg>
+        </div>
+        <p class="state-title">Pago rechazado</p>
+        <p class="state-msg" id="error-detail">Tu pago no pudo ser procesado. Intenta con otra tarjeta.</p>
+        <button class="btn-secondary" onclick="handleRetry()">Intentar de nuevo</button>
+      </div>
+    </div>
+
+    <!-- ═══════ STATE: fatal ══════════════════════ -->
+    <div id="state-fatal" class="state">
+      <div class="state-center">
+        <div class="error-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D94F4F" stroke-width="2.5">
+            <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+          </svg>
+        </div>
+        <p class="state-title">Orden no encontrada</p>
+        <p class="state-msg" id="fatal-detail">No pudimos cargar los detalles de tu orden.</p>
+      </div>
+    </div>
+
+  </div><!-- .card -->
+
+  <div class="checkout-footer">
+    Protegido por <strong>ePayco</strong> · PCI-DSS Compliant ·
+    <a href="https://codigosdemujeres.com/privacidad">Privacidad</a>
+  </div>
+
+  <!-- jQuery (required by ePayco SDK) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <!-- ePayco SDK for card tokenization -->
+  <script src="https://checkout.epayco.co/epayco.min.js"></script>
+  <!-- ePayco 3D Secure 2.0 validation script (required for EMV 3DS ACS device profiling and challenge rendering) -->
+  <script src="https://multimedia.epayco.co/general/3DS/validateThreeds.min.js"></script>
+
+  <script>
+    // ── State machine ──────────────────────────────────────────────────────────
+    var orderId     = null;
+    var orderData   = null;
+    var pollTimer   = null;
+    var pollCount   = 0;
+    var selectedDues = "1";
+    var MAX_POLLS    = 80;
+    var POLL_MS      = 3500;
+
+    // ── Redirect to React SPA step 3 after payment ────────────────────────────
+    // Shows the success state for 1.5s (visual confirmation), then hands off to
+    // the React SPA which renders social share, library button, and step indicator.
+    function redirectToSPA(downloadToken) {
+      var fmt  = (orderData && orderData.format) || 'ebook';
+      var lang = (orderData && orderData.lang)   || 'es';
+      var qs   = '?confirmed=1&orderId=' + encodeURIComponent(orderId)
+               + '&format=' + encodeURIComponent(fmt)
+               + '&lang='   + encodeURIComponent(lang);
+      // btn-library is a visible fallback if the redirect is blocked
+      if (downloadToken) {
+        document.getElementById('btn-library').href = '/library/' + downloadToken;
+        document.getElementById('btn-library').style.display = 'inline-block';
+      }
+      setTimeout(function() {
+        window.location.href = '/checkout' + qs;
+      }, 1500);
+    }
+
+    function showState(state) {
+      document.querySelectorAll('.state').forEach(function(el) {
+        el.classList.remove('active');
+      });
+      var el = document.getElementById('state-' + state);
+      if (el) el.classList.add('active');
+    }
+
+    // ── Extract orderId from URL /checkout/:orderId ────────────────────────────
+    function extractOrderId() {
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      // /checkout/:id
+      var id = parts[parts.length - 1];
+      if (id && id !== 'checkout') return id;
+      var params = new URLSearchParams(window.location.search);
+      return params.get('orderId') || params.get('id') || null;
+    }
+
+    // ── Formats ────────────────────────────────────────────────────────────────
+    function fmtCOP(n) {
+      return new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0 }).format(n);
+    }
+    function fmtUSD(n) {
+      return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
+    }
+
+    // ── Populate years ─────────────────────────────────────────────────────────
+    function populateYears() {
+      var sel = document.getElementById('expYear');
+      var cur = new Date().getFullYear();
+      for (var y = cur; y <= cur + 15; y++) {
+        var opt = document.createElement('option');
+        opt.value = String(y).slice(-2);
+        opt.textContent = String(y);
+        sel.appendChild(opt);
+      }
+    }
+
+    // ── Browser info for 3DS ──────────────────────────────────────────────────
+    function getBrowserInfo() {
+      return {
+        language:       navigator.language || 'es-CO',
+        colorDepth:     screen.colorDepth  || 24,
+        screenWidth:    screen.width       || 1440,
+        screenHeight:   screen.height      || 900,
+        timezoneOffset: new Date().getTimezoneOffset(),
+        javaEnabled:    false,
+        userAgent:      navigator.userAgent,
+      };
+    }
+
+    // ── Card number formatting ─────────────────────────────────────────────────
+    function formatCardInput(input) {
+      var v = input.value.replace(/\D/g, '');
+      if (v.length > 16) v = v.slice(0, 16);
+      input.value = v.replace(/(\d{4})(?=\d)/g, '$1 ');
+    }
+
+    // ── Dues buttons ──────────────────────────────────────────────────────────
+    function initDuesButtons() {
+      document.querySelectorAll('.dues-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.dues-btn').forEach(function(b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedDues = btn.dataset.dues;
+        });
+      });
+    }
+
+    // ── Fetch with timeout ─────────────────────────────────────────────────────
+    function fetchT(url, opts, ms) {
+      ms = ms || 30000;
+      var ctrl = new AbortController();
+      var timer = setTimeout(function() { ctrl.abort(); }, ms);
+      opts = opts || {};
+      opts.signal = ctrl.signal;
+      return fetch(url, opts).finally(function() { clearTimeout(timer); });
+    }
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    async function init() {
+      populateYears();
+      initDuesButtons();
+
+      document.getElementById('cardNumber').addEventListener('input', function() {
+        formatCardInput(this);
+      });
+      document.getElementById('payment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        handlePayment();
+      });
+
+      orderId = extractOrderId();
+      if (!orderId) {
+        showState('fatal');
+        document.getElementById('fatal-detail').textContent = 'No se encontró el ID de la orden. Vuelve a la tienda.';
+        return;
+      }
+
+      // Check if redirected back from 3DS response
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('response') === '1') {
+        startPolling();
+        return;
+      }
+
+      try {
+        var res  = await fetchT('/api/store/checkout/' + encodeURIComponent(orderId));
+        var data = await res.json();
+
+        if (!res.ok || !data.success) {
+          if (data.alreadyPaid && data.downloadToken) {
+            showState('success');
+            document.getElementById('success-detail').textContent = '¡Tu pago ya fue procesado! Accede a tu biblioteca.';
+            redirectToSPA(data.downloadToken);
+            return;
+          }
+          showState('fatal');
+          document.getElementById('fatal-detail').textContent = data.error || 'No se pudo cargar la orden.';
+          return;
+        }
+
+        orderData = data.order;
+        renderSummary();
+        applyIdentity(params);
+        showState('form');
+      } catch (err) {
+        showState('fatal');
+        document.getElementById('fatal-detail').textContent = 'Error de conexión. Verifica tu internet e intenta de nuevo.';
+      }
+    }
+
+    // ── Render product summary ────────────────────────────────────────────────
+    function renderSummary() {
+      var o = orderData;
+      var formatLabels = { ebook: 'E-book', audio: 'Audiolibro', bundle: 'Bundle' };
+      document.getElementById('product-format').textContent = formatLabels[o.format] || o.format;
+      document.getElementById('product-name').textContent   = o.productName;
+      document.getElementById('price-cop').textContent      = fmtCOP(o.amountCOP);
+      document.getElementById('price-usd').textContent      = fmtUSD(o.amountUSD) + ' USD';
+      document.getElementById('order-ref').textContent      = 'Ref: ' + o.ref;
+      document.getElementById('product-summary').style.display = 'block';
+      document.getElementById('btn-pay').textContent        = 'Pagar ' + fmtCOP(o.amountCOP);
+    }
+
+    // ── Pre-fill identity from URL params (fn=firstName, ln=lastName) ─────────
+    // When the buyer came from the React checkout, name+email are already known.
+    // Replace the editable fields with a read-only identity banner so they don't
+    // have to enter name/email a second time.
+    function applyIdentity(params) {
+      var fn    = (params.get('fn')    || '').trim();
+      var ln    = (params.get('ln')    || '').trim();
+      var email = (orderData && orderData.email) || '';
+
+      // Always set the hidden input values so handlePayment can read them
+      document.getElementById('name').value     = fn    || document.getElementById('name').value;
+      document.getElementById('lastName').value = ln    || document.getElementById('lastName').value;
+      document.getElementById('email').value    = email || document.getElementById('email').value;
+
+      if (fn && email) {
+        // Show identity banner, hide the editable fields
+        var fullName = fn + (ln ? ' ' + ln : '');
+        document.getElementById('identity-name').textContent  = fullName;
+        document.getElementById('identity-email').textContent = email;
+        document.getElementById('identity-banner').style.display = 'flex';
+        document.getElementById('identity-fields').style.display = 'none';
+      } else if (email) {
+        // At least pre-fill email
+        document.getElementById('email').value = email;
+      }
+    }
+
+    // ── Luhn algorithm ─────────────────────────────────────────────────────────
+    function luhnCheck(num) {
+      var sum = 0, alt = false;
+      for (var i = num.length - 1; i >= 0; i--) {
+        var n = parseInt(num.charAt(i), 10);
+        if (isNaN(n)) return false;
+        if (alt) { n *= 2; if (n > 9) n -= 9; }
+        sum += n;
+        alt = !alt;
+      }
+      return sum % 10 === 0;
+    }
+
+    // ── Form submit ───────────────────────────────────────────────────────────
+    async function handlePayment() {
+      var errEl = document.getElementById('form-error');
+      errEl.style.display = 'none';
+
+      var name      = document.getElementById('name').value.trim();
+      var lastName  = document.getElementById('lastName').value.trim();
+      var email     = document.getElementById('email').value.trim();
+      var docType   = document.getElementById('docType').value;
+      var docNumber = document.getElementById('docNumber').value.trim();
+      var phone     = document.getElementById('phone').value.trim();
+      var cardNum   = document.getElementById('cardNumber').value.replace(/\s/g, '');
+      var expMonth  = document.getElementById('expMonth').value;
+      var expYear   = document.getElementById('expYear').value;
+      var cvc       = document.getElementById('cvc').value.trim();
+
+      // name/email may be hidden (identity banner) but their values are still set
+      if (!name) {
+        errEl.textContent = 'Por favor ingresa tu nombre.';
+        errEl.style.display = 'block';
+        document.getElementById('identity-fields').style.display = 'block';
+        document.getElementById('identity-banner').style.display = 'none';
+        document.getElementById('name').focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errEl.textContent = 'Correo electrónico inválido.';
+        errEl.style.display = 'block';
+        document.getElementById('identity-fields').style.display = 'block';
+        document.getElementById('identity-banner').style.display = 'none';
+        document.getElementById('email').focus();
+        return;
+      }
+      if (!docNumber || !cardNum || !expMonth || !expYear || !cvc) {
+        errEl.textContent = 'Por favor completa todos los campos requeridos.';
+        errEl.style.display = 'block';
+        return;
+      }
+      if (cardNum.length < 13 || cardNum.length > 19 || !luhnCheck(cardNum)) {
+        errEl.textContent = 'Número de tarjeta inválido.';
+        errEl.style.display = 'block';
+        return;
+      }
+      if (cvc.length < 3 || cvc.length > 4) {
+        errEl.textContent = 'CVC inválido.';
+        errEl.style.display = 'block';
+        return;
+      }
+      var now = new Date();
+      var expYearFull = parseInt('20' + expYear, 10);
+      var expMonthInt = parseInt(expMonth, 10);
+      if (expYearFull < now.getFullYear() || (expYearFull === now.getFullYear() && expMonthInt < now.getMonth() + 1)) {
+        errEl.textContent = 'La tarjeta está vencida.';
+        errEl.style.display = 'block';
+        return;
+      }
+
+      document.getElementById('btn-pay').disabled = true;
+      showState('processing');
+      document.getElementById('processing-msg').textContent = 'Cifrando tu tarjeta de forma segura…';
+
+      try {
+        var tokenCard = await tokenizeCard(cardNum, expYear, expMonth, cvc, email, name);
+        if (!tokenCard) throw new Error('No se pudo tokenizar la tarjeta. Verifica los datos e intenta de nuevo.');
+
+        document.getElementById('processing-msg').textContent = 'Procesando tu pago…';
+
+        var chargeRes = await fetchT('/api/store/checkout/tokenized-charge', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            orderId:    orderId,
+            tokenCard:  tokenCard,
+            customer: {
+              name:      name,
+              lastName:  lastName,
+              email:     email,
+              docType:   docType,
+              docNumber: docNumber,
+              phone:     phone || '3000000000',
+              city:      'Bogota',
+              address:   'N/A',
+              country:   'CO',
+            },
+            dues:        selectedDues,
+            browserInfo: getBrowserInfo(),
+            userAgent:   navigator.userAgent,
+          }),
+        });
+
+        var result = await chargeRes.json();
+        handleChargeResult(result);
+      } catch (err) {
+        showState('error');
+        document.getElementById('error-detail').textContent = err.message || 'Error inesperado. Intenta de nuevo.';
+        document.getElementById('btn-pay').disabled = false;
+      }
+    }
+
+    // ── Card tokenization via ePayco.js ───────────────────────────────────────
+    function tokenizeCard(number, year, month, cvc, email, cardholderName) {
+      return new Promise(function(resolve, reject) {
+        if (typeof ePayco === 'undefined') {
+          reject(new Error('El SDK de pago no pudo cargar. Recarga la página e intenta de nuevo.'));
+          return;
+        }
+        try {
+          ePayco.setPublicKey(orderData.epaycoPublicKey);
+          // setTestMode may not exist in all SDK versions — guard it
+          if (orderData.testMode && typeof ePayco.setTestMode === 'function') {
+            ePayco.setTestMode(true);
+          }
+
+          var form = document.createElement('form');
+          form.style.display = 'none';
+          var fields = {
+            'card[number]':    number,
+            'card[exp_year]':  '20' + year,
+            'card[exp_month]': month,
+            'card[cvc]':       cvc,
+            'card[name]':      cardholderName || name || '',
+            'card[email]':     (email || '').trim().toLowerCase(),
+          };
+          Object.keys(fields).forEach(function(fieldName) {
+            var input = document.createElement('input');
+            // Both data-epayco (SDK field detection) and name (jQuery serialization) are required
+            input.setAttribute('data-epayco', fieldName);
+            input.setAttribute('name', fieldName);
+            input.value = fields[fieldName];
+            form.appendChild(input);
+          });
+          document.body.appendChild(form);
+
+          // Handle both SDK callback conventions:
+          //   Old SDK: callback(tokenData)           — single arg
+          //   New SDK: callback(error, tokenData)    — error-first
+          ePayco.token.create(form, function(firstArg, secondArg) {
+            form.remove();
+
+            // Detect which convention the SDK used
+            var error, tokenData;
+            if (secondArg === undefined) {
+              // Single-arg SDK: firstArg IS the token response object
+              error     = null;
+              tokenData = firstArg;
+            } else {
+              error     = firstArg;
+              tokenData = secondArg;
+            }
+
+            if (error) {
+              var errMsg = typeof error === 'string' ? error : (error.message || 'Error de tokenización');
+              reject(new Error(errMsg));
+              return;
+            }
+
+            // Extract token ID from various response shapes
+            if      (tokenData && tokenData.status  && tokenData.id)          resolve(tokenData.id);
+            else if (tokenData && tokenData.token)                             resolve(tokenData.token);
+            else if (tokenData && tokenData.data    && tokenData.data.id)      resolve(tokenData.data.id);
+            else {
+              // Tokenization failed — extract error message
+              var failMsg = 'Tarjeta no aceptada por el banco.';
+              if (tokenData && tokenData.data && tokenData.data.errors) {
+                var errs = tokenData.data.errors;
+                failMsg = typeof errs === 'object' ? Object.values(errs).flat().join(' ') : failMsg;
+              } else if (tokenData && tokenData.message) {
+                failMsg = tokenData.message;
+              } else if (tokenData && !tokenData.status && typeof tokenData.status !== 'undefined') {
+                failMsg = 'Los datos de la tarjeta son incorrectos. Verifica el número, fecha y CVC.';
+              }
+              reject(new Error(failMsg));
+            }
+          });
+        } catch (err) { reject(err); }
+      });
+    }
+
+    // ── Handle charge result ──────────────────────────────────────────────────
+    function handleChargeResult(result) {
+      if (result.status === 'approved' && result.success) {
+        showState('success');
+        document.getElementById('success-detail').textContent = result.message || '¡Pago confirmado!';
+        redirectToSPA(result.downloadToken || null);
+        return;
+      }
+      if (result.status === 'processing' && result.success) {
+        startPolling();
+        return;
+      }
+      if (result.status === 'pending' && result.redirectUrl) {
+        handle3DSRedirect(result.redirectUrl);
+        return;
+      }
+      if (result.status === 'pending' && result.threeDSecure) {
+        handle3DS2(result.threeDSecure);
+        return;
+      }
+      if (result.status === 'pending') {
+        startPolling();
+        return;
+      }
+      // Failed / rejected
+      showState('error');
+      document.getElementById('error-detail').textContent =
+        result.error || 'Tu pago fue rechazado. Intenta con otra tarjeta.';
+      document.getElementById('btn-pay').disabled = false;
+    }
+
+    // ── 3DS 1.0: Bank redirect in iframe ─────────────────────────────────────
+    // Keep the 3DS iframe visible while polling in the background.
+    // Two resolution paths:
+    //   A) Bank redirects parent via allow-top-navigation → page reloads with
+    //      ?response=1 → init() calls startPolling() normally.
+    //   B) allow-top-navigation blocked or bank slow → background poll detects
+    //      paid/failed and switches state directly.
+    function handle3DSRedirect(url) {
+      showState('3ds');
+      document.getElementById('threeds-iframe').src = url;
+      // Start background polling after 10s — keeps iframe visible
+      setTimeout(function() { startPolling(true); }, 10000);
+    }
+
+    // ── 3DS 2.0: Cardinal Commerce DDC ───────────────────────────────────────
+    // Sends the browser fingerprint JWT to Cardinal's DDC endpoint in a hidden
+    // iframe, then waits for Cardinal's postMessage (Status===true) to signal
+    // that device data collection is complete before closing the ACS loop.
+    function handle3DS2(threeDSecure) {
+      showState('processing');
+      document.getElementById('processing-msg').textContent = 'Completando verificación 3D Secure…';
+      var data = threeDSecure.data || {};
+
+      if (data.deviceDataCollectionUrl && data.accessToken) {
+        var ddcSettled = false;
+        var ddcFallback = null;
+
+        function onCardinalMessage(evt) {
+          try {
+            var msg = typeof evt.data === 'string' ? JSON.parse(evt.data) : evt.data;
+            // Cardinal signals DDC completion with Status===true or MessageType==='profile.completed'
+            if (msg && (msg.Status === true || msg.Status === 'true' || msg.MessageType === 'profile.completed')) {
+              settleDDC();
+            }
+          } catch (e) { /* non-Cardinal message — ignore */ }
+        }
+
+        function settleDDC() {
+          if (ddcSettled) return;
+          ddcSettled = true;
+          window.removeEventListener('message', onCardinalMessage);
+          if (ddcFallback) clearTimeout(ddcFallback);
+          var frame = document.getElementById('cardinal-ddc-frame');
+          if (frame) frame.remove();
+          complete3DS2({ version: '2.0', referenceId: data.referenceId, authenticated: true,
+            validationData: { accessToken: data.accessToken, referenceId: data.referenceId, token: data.token } });
+        }
+
+        window.addEventListener('message', onCardinalMessage);
+        // Fallback: if Cardinal never posts back within 6 s, proceed anyway
+        ddcFallback = setTimeout(settleDDC, 6000);
+
+        var iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.id = 'cardinal-ddc-frame';
+        iframe.name = 'cardinal-ddc-frame';
+        document.body.appendChild(iframe);
+
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = data.deviceDataCollectionUrl;
+        form.target = 'cardinal-ddc-frame';
+        var input = document.createElement('input');
+        input.type = 'hidden'; input.name = 'JWT'; input.value = data.accessToken;
+        form.appendChild(input);
+        document.body.appendChild(form);
+        form.submit();
+        form.remove();
+      } else {
+        complete3DS2({ version: '2.0', referenceId: data.referenceId, authenticated: true, validationData: data });
+      }
+    }
+
+    async function complete3DS2(threeDSecureData) {
+      try {
+        var res = await fetchT('/api/store/checkout/complete-3ds-2', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ orderId: orderId, threeDSecure: threeDSecureData }),
+        });
+        var result = await res.json();
+        if (result.status === 'completed' && result.downloadToken) {
+          showState('success');
+          document.getElementById('success-detail').textContent = '¡Pago autenticado y confirmado!';
+          document.getElementById('btn-library').href = '/library/' + result.downloadToken;
+        } else {
+          startPolling();
+        }
+      } catch (err) { startPolling(); }
+    }
+
+    // ── Polling ───────────────────────────────────────────────────────────────
+    // background=true: poll without switching state (used while 3DS iframe is visible)
+    function startPolling(background) {
+      if (!background) showState('polling');
+      pollCount = 0;
+      if (pollTimer) clearInterval(pollTimer);
+
+      pollTimer = setInterval(async function() {
+        pollCount++;
+        if (pollCount > MAX_POLLS) {
+          clearInterval(pollTimer);
+          showState('error');
+          document.getElementById('error-detail').textContent =
+            'La confirmación tardó más de lo esperado. Si fuiste cobrada, recibirás tu libro por correo en los próximos minutos.';
+          document.getElementById('btn-pay').disabled = false;
+          return;
+        }
+
+        document.getElementById('polling-detail').textContent = 'Intento ' + pollCount + '/' + MAX_POLLS;
+
+        try {
+          var res  = await fetchT('/api/store/checkout/' + encodeURIComponent(orderId) + '/status', null, 10000);
+          var data = await res.json();
+
+          if (data.status === 'paid') {
+            clearInterval(pollTimer);
+            showState('success');
+            document.getElementById('success-detail').textContent =
+              '¡Tu pago fue confirmado! Revisa tu correo y accede a tu biblioteca.';
+            redirectToSPA(data.downloadToken || null);
+          } else if (data.status === 'failed') {
+            clearInterval(pollTimer);
+            showState('error');
+            document.getElementById('error-detail').textContent =
+              data.message || 'El pago fue rechazado. Intenta con otra tarjeta.';
+            document.getElementById('btn-pay').disabled = false;
+          }
+        } catch (err) { console.warn('[checkout] poll error:', err.message); }
+      }, POLL_MS);
+    }
+
+    // ── Retry ─────────────────────────────────────────────────────────────────
+    function handleRetry() {
+      if (pollTimer) clearInterval(pollTimer);
+      document.getElementById('btn-pay').disabled = false;
+      showState('form');
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>
