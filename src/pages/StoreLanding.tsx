@@ -415,7 +415,7 @@ export default function StoreLanding() {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
-      <SEOHead title={site.product.title_es + " — " + site.author.name} description={site.product.tagline_es} url={`https://${site.domain}`} lang={lang} />
+      <SEOHead title={site.product.title_es + " — " + site.author.name} description={site.product.tagline_es} url={`https://${site.domain}`} image={`https://${site.domain}/og-image.png`} type="book" lang={lang} />
 
       {/* ── Scroll-snap + global section styles ── */}
       <style>{`
@@ -503,7 +503,7 @@ export default function StoreLanding() {
         <p style={{ ...S.eyebrow, color: C.crimson, marginBottom: 20 }}>{t.hero_eyebrow}</p>
         <div style={{ marginBottom: 28 }}>
           <img
-            src={lang === "en" ? "/cover-en.png" : lang === "it" ? "/cover-it.png" : lang === "pt" ? "/cover-es.png" : "/cover-es.png"}
+            src={lang === "en" ? "/cover-en.png" : lang === "it" ? "/cover-it.png" : lang === "pt" ? "/cover-pt.png" : "/cover-es.png"}
             alt={`CÓDIGOS — ${t.hero_author}`}
             className="cover-img"
             style={{ width: "clamp(160px, 42vw, 220px)", height: "auto", borderRadius: 4, boxShadow: "8px 8px 32px rgba(122,28,56,0.25), -2px 2px 0 rgba(122,28,56,0.15)" }}

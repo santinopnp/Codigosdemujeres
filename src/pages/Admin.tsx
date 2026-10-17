@@ -2855,6 +2855,7 @@ function BibliotecaPanel({ token }: { token: string }) {
             { src: "/cover-es.png", label: "Portada ES", type: "Imagen" },
             { src: "/cover-en.png", label: "Portada EN", type: "Imagen" },
             { src: "/cover-it.png", label: "Portada IT", type: "Imagen" },
+            { src: "/cover-pt.png", label: "Portada PT", type: "Imagen" },
             { src: "/daya.jpg", label: "Foto autora", type: "Imagen" },
           ].map(item => (
             <div key={item.src} style={{ background: C.surface, border: `1px solid ${C.border}`, padding: 10, textAlign: "center" }}>
