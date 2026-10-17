@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import SEOHead from "@/components/SEOHead";
 
 const C = {
-  bg:     "#FBF7F1",
-  cherry: "#C2506A",
-  dark:   "#3D2B1F",
-  muted:  "#7A6652",
-  border: "#F3EBE0",
-  gold:   "#B8936A",
+  bg:     "#FFF1F4",
+  cherry: "#A12B52",
+  dark:   "#4E0F22",
+  muted:  "#7A4A58",
+  border: "#F1DCE2",
+  gold:   "#C9A86A",
 };
 
 function detectLang(): "es" | "en" | "it" {
@@ -61,7 +61,7 @@ export default function Unsubscribe() {
           width: "100%",
           padding: "40px 36px",
           textAlign: "center",
-          boxShadow: "0 4px 24px rgba(61,43,31,0.06)",
+          boxShadow: "0 4px 24px rgba(78,15,34,0.06)",
         }}>
           {success ? (
             <>

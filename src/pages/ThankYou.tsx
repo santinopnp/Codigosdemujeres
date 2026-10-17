@@ -10,8 +10,8 @@ const FORMAT_PRICES: Record<string, number> = {
 };
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
   success: "#5A9E6F", pureWhite: "#FFFFFF",
 };
 
@@ -126,13 +126,13 @@ export default function ThankYou() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
       <nav style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "14px 20px", borderBottom: `1px solid ${C.surface}` }}>
-        <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 18, letterSpacing: "0.1em", color: C.crimson }}>Códigos</span>
+        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 18, letterSpacing: "0.1em", color: C.crimson }}>Códigos</span>
       </nav>
 
       <main style={{ maxWidth: 480, margin: "0 auto", padding: "48px 20px 80px", textAlign: "center" }}>
         {loading ? (
           <div style={{ display: "flex", justifyContent: "center", padding: 60 }}>
-            <div style={{ width: 28, height: 28, border: "3px solid #D9C9B0", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+            <div style={{ width: 28, height: 28, border: "3px solid #F1DCE2", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
           </div>
         ) : (
           <>
@@ -143,7 +143,7 @@ export default function ThankYou() {
               </svg>
             </div>
 
-            <h1 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 28, fontWeight: 700, color: C.white, marginBottom: 12 }}>
+            <h1 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 28, fontWeight: 700, color: C.white, marginBottom: 12 }}>
               {t.title}
             </h1>
             <p style={{ fontSize: 15, color: C.secondary, lineHeight: 1.6, marginBottom: 8 }}>
@@ -159,7 +159,7 @@ export default function ThankYou() {
                 backgroundColor: C.surface, padding: 24, marginBottom: 28,
                 borderLeft: `3px solid ${C.crimson}`, textAlign: "left",
               }}>
-                <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, marginBottom: 8 }}>
+                <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, marginBottom: 8 }}>
                   {t.upsell_title}
                 </p>
                 <p style={{ fontSize: 13, color: C.secondary, lineHeight: 1.6, marginBottom: 16 }}>
@@ -202,10 +202,10 @@ export default function ThankYou() {
 
             {/* Install app */}
             <div style={{
-              background: "#F9EFF5", border: "1px solid #F0D8E0",
+              background: "#FBF6F7", border: "1px solid #F1DCE2",
               borderRadius: 10, padding: "18px 20px", marginBottom: 20, textAlign: "center",
             }}>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, fontWeight: 700, color: C.white, marginBottom: 6 }}>
+              <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 15, fontWeight: 700, color: C.white, marginBottom: 6 }}>
                 {t.app_title}
               </p>
               <p style={{ fontSize: 13, color: C.secondary, lineHeight: 1.6, marginBottom: 10 }}>

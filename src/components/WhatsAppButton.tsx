@@ -62,7 +62,7 @@ export default function WhatsAppButton({
         <div
           style={{
             backgroundColor: "#FFFFFF",
-            color: "#2B2B2B",
+            color: "#4E0F22",
             fontSize: 13,
             fontFamily: "'Nunito', sans-serif",
             fontWeight: 600,

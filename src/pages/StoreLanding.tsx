@@ -355,8 +355,8 @@ const SAVINGS = PRICES.ebook + PRICES.audio - PRICES.bundle;
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const S = {
-  eyebrow: { fontFamily: "'Nunito', sans-serif", fontSize: 11, fontWeight: 700 as const, letterSpacing: "0.15em", textTransform: "uppercase" as const },
-  heading: { fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700 as const, letterSpacing: "0.01em" },
+  eyebrow: { fontFamily: "'Nunito', sans-serif", fontSize: 12, fontWeight: 800 as const, letterSpacing: "0.16em", textTransform: "uppercase" as const },
+  heading: { fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700 as const, letterSpacing: "0", fontVariationSettings: "'opsz' 144" },
   body:    { fontFamily: "'Nunito', sans-serif", lineHeight: 1.7 },
 };
 
@@ -453,11 +453,11 @@ export default function StoreLanding() {
         .testimonial-scroll > div { scroll-snap-align: center; flex-shrink: 0; width: 280px; }
         .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; max-width: 720px; margin: 0 auto; }
         @media (max-width: 500px) { .social-grid { grid-template-columns: repeat(2, 1fr); } }
-        .social-tile { display: block; position: relative; overflow: hidden; background: #F7C6D0; cursor: pointer; text-decoration: none; }
+        .social-tile { display: block; position: relative; overflow: hidden; background: #F6C6D3; cursor: pointer; text-decoration: none; }
         .social-tile::before { content: ""; display: block; padding-top: 100%; }
         .social-tile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
         .social-tile:hover img { transform: scale(1.05); }
-        .social-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(123,30,58,0.9) 0%, transparent 55%); opacity: 0; transition: opacity 0.25s; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
+        .social-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(122,28,56,0.9) 0%, transparent 55%); opacity: 0; transition: opacity 0.25s; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; }
         .social-tile:hover .social-overlay { opacity: 1; }
         @media (hover: none) { .social-tile .social-overlay { opacity: 0.8; } }
       `}</style>
@@ -465,9 +465,8 @@ export default function StoreLanding() {
       {/* ── NAV ── */}
       <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: C.burgundy }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", height: 52 }}>
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 8, flexShrink: 0 }}>
-            <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.pureWhite, letterSpacing: "0.12em" }}>{t.nav_brand}</span>
-            <span className="hidden sm:inline" style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>{t.nav_sub}</span>
+          <a href="#" aria-label={t.nav_brand} onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+            <img src="/brand/codigos-horizontal-vino.svg" alt="Códigos — Empoderamiento Femenino" style={{ height: 34, width: "auto", display: "block" }} />
           </a>
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
             {[
@@ -500,21 +499,21 @@ export default function StoreLanding() {
       <div className="snap-container">
 
       {/* ═══ 1. HERO ═══ */}
-      <section className="snap-section section-pad" style={{ textAlign: "center", background: `linear-gradient(180deg, ${C.bg} 0%, ${C.pink} 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "calc(100svh - 52px)" }}>
+      <section className="snap-section section-pad cd-trama" style={{ textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", minHeight: "calc(100svh - 52px)" }}>
         <p style={{ ...S.eyebrow, color: C.crimson, marginBottom: 20 }}>{t.hero_eyebrow}</p>
         <div style={{ marginBottom: 28 }}>
           <img
             src={lang === "en" ? "/cover-en.png" : lang === "it" ? "/cover-it.png" : lang === "pt" ? "/cover-es.png" : "/cover-es.png"}
             alt={`CÓDIGOS — ${t.hero_author}`}
             className="cover-img"
-            style={{ width: "clamp(160px, 42vw, 220px)", height: "auto", borderRadius: 4, boxShadow: "8px 8px 32px rgba(123,30,58,0.25), -2px 2px 0 rgba(123,30,58,0.15)" }}
+            style={{ width: "clamp(160px, 42vw, 220px)", height: "auto", borderRadius: 4, boxShadow: "8px 8px 32px rgba(122,28,56,0.25), -2px 2px 0 rgba(122,28,56,0.15)" }}
           />
         </div>
-        <h1 style={{ ...S.heading, fontSize: "clamp(1.8rem, 6vw, 2.8rem)", lineHeight: 1.15, color: C.burgundy, marginBottom: 12, whiteSpace: "pre-line" }}>{t.hero_title}</h1>
+        <h1 className="cd-wordmark" style={{ ...S.heading, fontWeight: 800, fontSize: "clamp(1.9rem, 6.4vw, 3rem)", lineHeight: 1.05, color: C.burgundy, marginBottom: 12, whiteSpace: "pre-line", textShadow: "0.035em 0.035em 0 #E8557F" }}>{t.hero_title}</h1>
         <p style={{ fontSize: 14, color: C.muted, marginBottom: 24, fontStyle: "italic" }}>{t.hero_author}</p>
         <p style={{ ...S.body, fontSize: 15, color: C.secondary, maxWidth: 460, margin: "0 auto 24px", lineHeight: 1.7 }}>{t.hero_hook}</p>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, marginBottom: 32 }}>
-          <span style={{ color: "#C9A84C", fontSize: 15, letterSpacing: 2 }}>{t.hero_stars}</span>
+          <span style={{ color: "#C9A86A", fontSize: 15, letterSpacing: 2 }}>{t.hero_stars}</span>
           <span style={{ fontSize: 12, color: C.muted, fontWeight: 600 }}>{t.hero_readers}</span>
         </div>
         <a href="#pain" style={{ display: "inline-block", fontSize: 13, color: C.crimson, fontWeight: 600, textDecoration: "none", letterSpacing: "0.03em", animation: "pulse 2s infinite" }}>{t.hero_scroll}</a>
@@ -532,7 +531,7 @@ export default function StoreLanding() {
               </div>
             ))}
           </div>
-          <div style={{ marginTop: 36, padding: "20px 24px", background: `linear-gradient(135deg, ${C.pink}40, ${C.pink}80)`, borderRadius: 12 }}>
+          <div style={{ marginTop: 36, padding: "20px 24px", background: C.pureWhite, border: `1px solid ${C.border}`, boxShadow: "4px 4px 0 #E8557F", borderRadius: 12 }}>
             <p style={{ ...S.heading, fontSize: 18, color: C.burgundy, lineHeight: 1.4, textAlign: "center" }}>{t.pain_close}</p>
           </div>
         </div>
@@ -544,7 +543,7 @@ export default function StoreLanding() {
           <p style={{ ...S.eyebrow, color: C.darkBurg, marginBottom: 32, textAlign: "center" }}>{t.solution_title}</p>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 20 }}>
             {t.solution_items.map((item, i) => (
-              <div key={i} style={{ padding: "24px 22px", backgroundColor: C.pureWhite, borderRadius: 12, borderLeft: `3px solid ${C.crimson}`, boxShadow: "0 2px 12px rgba(123,30,58,0.06)" }}>
+              <div key={i} style={{ padding: "24px 22px", backgroundColor: C.pureWhite, borderRadius: 12, borderLeft: `3px solid ${C.crimson}`, boxShadow: "0 2px 12px rgba(122,28,56,0.06)" }}>
                 <p style={{ ...S.heading, fontSize: 17, color: C.burgundy, marginBottom: 10 }}>{item.title}</p>
                 <p style={{ fontSize: 14, color: C.secondary, lineHeight: 1.7 }}>{item.desc}</p>
               </div>
@@ -585,8 +584,8 @@ export default function StoreLanding() {
           <p style={{ ...S.eyebrow, color: C.crimson, textAlign: "center", marginBottom: 28 }}>{t.test_title}</p>
           <div className="testimonial-scroll">
             {testimonials.map((r, i) => (
-              <div key={i} style={{ padding: "24px 22px", backgroundColor: C.pureWhite, borderRadius: 12, boxShadow: "0 2px 12px rgba(123,30,58,0.06)" }}>
-                <div style={{ marginBottom: 10, color: "#C9A84C", fontSize: 14 }}>{"★".repeat(r.stars)}{"☆".repeat(5 - r.stars)}</div>
+              <div key={i} style={{ padding: "24px 22px", backgroundColor: C.pureWhite, borderRadius: 12, boxShadow: "0 2px 12px rgba(122,28,56,0.06)" }}>
+                <div style={{ marginBottom: 10, color: "#C9A86A", fontSize: 14 }}>{"★".repeat(r.stars)}{"☆".repeat(5 - r.stars)}</div>
                 <p style={{ fontSize: 14, lineHeight: 1.65, marginBottom: 14, color: C.secondary }}>"{lang === "en" ? r.text_en || r.text_es : lang === "it" ? (r as any).text_it || r.text_en || r.text_es : lang === "pt" ? (r as any).text_pt || r.text_es : r.text_es}"</p>
                 <p style={{ fontSize: 12, color: C.muted, fontWeight: 600 }}>— {r.author}</p>
               </div>
@@ -595,7 +594,7 @@ export default function StoreLanding() {
           {/* Scroll hint dots */}
           <div style={{ display: "flex", justifyContent: "center", gap: 6, marginTop: 12 }}>
             {testimonials.slice(0, Math.min(testimonials.length, 6)).map((_, i) => (
-              <span key={i} style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: i === 0 ? C.crimson : "rgba(123,30,58,0.2)" }} />
+              <span key={i} style={{ width: 6, height: 6, borderRadius: "50%", backgroundColor: i === 0 ? C.crimson : "rgba(122,28,56,0.2)" }} />
             ))}
           </div>
         </section>
@@ -605,7 +604,7 @@ export default function StoreLanding() {
       <section id="autora" className="snap-section section-pad" style={{ backgroundColor: C.bg }}>
         <div style={{ maxWidth: 520, margin: "0 auto", textAlign: "center" }}>
           <p style={{ ...S.eyebrow, color: C.crimson, marginBottom: 24 }}>{t.author_eyebrow}</p>
-          <img src="/daya.jpg" alt={t.author_name} className="author-img" style={{ width: "clamp(110px, 30vw, 150px)", height: "clamp(110px, 30vw, 150px)", borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: `3px solid ${C.crimson}`, marginBottom: 20, boxShadow: "0 4px 20px rgba(123,30,58,0.15)" }} />
+          <img src="/daya.jpg" alt={t.author_name} className="author-img" style={{ width: "clamp(110px, 30vw, 150px)", height: "clamp(110px, 30vw, 150px)", borderRadius: "50%", objectFit: "cover", objectPosition: "center top", border: `3px solid ${C.crimson}`, marginBottom: 20, boxShadow: "0 4px 20px rgba(122,28,56,0.15)" }} />
           <h3 style={{ ...S.heading, fontSize: 22, color: C.burgundy, marginBottom: 12 }}>{t.author_name}</h3>
           <p style={{ fontSize: 15, color: C.secondary, lineHeight: 1.75 }}>{t.author_bio}</p>
         </div>
@@ -661,8 +660,8 @@ export default function StoreLanding() {
                         onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
                       />
                     ) : (
-                      <div style={{ width: "100%", height: "100%", background: `linear-gradient(145deg, ${C.pink} 0%, #F0B0C4 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 16, gap: 8 }}>
-                        <span style={{ fontFamily: "'Playfair Display', serif", fontSize: 24, color: C.crimson }}>✦</span>
+                      <div style={{ width: "100%", height: "100%", background: `linear-gradient(145deg, ${C.pink} 0%, #F6A9BE 100%)`, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 16, gap: 8 }}>
+                        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 24, color: C.crimson }}>✦</span>
                         <p style={{ fontFamily: "'Nunito', sans-serif", fontSize: 11, color: C.burgundy, textAlign: "center", lineHeight: 1.4, fontWeight: 600, margin: 0, overflow: "hidden", display: "-webkit-box", WebkitLineClamp: 5, WebkitBoxOrient: "vertical" as const }}>
                           {caption}
                         </p>
@@ -736,7 +735,7 @@ export default function StoreLanding() {
                 border: `2px solid ${format === f.key ? C.crimson : C.border}`,
                 borderRadius: 16, cursor: "pointer",
                 transition: "all 0.2s",
-                boxShadow: format === f.key ? "0 4px 20px rgba(194,80,106,0.15)" : "none",
+                boxShadow: format === f.key ? "0 4px 20px rgba(161,43,82,0.15)" : "none",
                 textAlign: "center",
                 order: f.key === "bundle" ? -1 : 0,
               }}>
@@ -763,18 +762,18 @@ export default function StoreLanding() {
             <button onClick={handleBuy} style={{
               display: "inline-flex", alignItems: "center", justifyContent: "center",
               padding: "18px 48px", minWidth: 280,
-              backgroundColor: C.crimson, color: C.pureWhite,
-              fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: 17,
-              letterSpacing: "0.04em",
-              border: "none", borderRadius: 8, cursor: "pointer",
-              transition: "background-color 0.15s, transform 0.1s",
-              boxShadow: "0 6px 20px rgba(231,84,128,0.35)",
+              backgroundColor: C.burgundy, color: C.pinkLight,
+              fontFamily: "'Nunito', sans-serif", fontWeight: 800, fontSize: 17,
+              letterSpacing: "0.02em",
+              border: "none", borderRadius: 12, cursor: "pointer",
+              transition: "transform 0.12s, box-shadow 0.12s",
+              boxShadow: "4px 4px 0 #E8557F",
             }}
-              onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.crimsonHv; e.currentTarget.style.transform = "translateY(-1px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.crimson; e.currentTarget.style.transform = "none"; }}>
+              onMouseEnter={e => { e.currentTarget.style.transform = "translate(-1px, -1px)"; e.currentTarget.style.boxShadow = "5px 5px 0 #E8557F"; }}
+              onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "4px 4px 0 #E8557F"; }}>
               {t.buy_cta} —{" "}
               <span style={{ textDecoration: "line-through", opacity: 0.6, marginRight: 4 }}>{originalPrice}</span>
-              <span style={{ color: "#FFE066" }}>{price}</span>
+              <span style={{ color: "#FFF1F4" }}>{price}</span>
               {localPrice && <span style={{ fontSize: 12, opacity: 0.75, marginLeft: 6 }}>≈ {localPrice}</span>}
             </button>
           </div>
@@ -860,21 +859,21 @@ export default function StoreLanding() {
 
       {/* ═══ 10. FINAL CTA ═══ */}
       <section className="snap-section section-pad" style={{ textAlign: "center", backgroundColor: C.burgundy, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-        <h2 style={{ ...S.heading, fontSize: "clamp(1.5rem, 5vw, 2.2rem)", color: C.pureWhite, marginBottom: 14 }}>{t.final_title}</h2>
-        <p style={{ fontSize: 15, color: "rgba(255,255,255,0.75)", marginBottom: 32, maxWidth: 420, lineHeight: 1.65 }}>{t.final_desc}</p>
+        <h2 className="cd-wordmark" style={{ ...S.heading, fontSize: "clamp(1.5rem, 5vw, 2.2rem)", color: C.pinkLight, marginBottom: 14 }}>{t.final_title}</h2>
+        <p style={{ fontSize: 15, color: C.pink, marginBottom: 32, maxWidth: 420, lineHeight: 1.65 }}>{t.final_desc}</p>
         <button onClick={handleBuy} style={{
           display: "inline-flex", padding: "18px 44px",
-          backgroundColor: C.crimson, color: C.pureWhite,
-          fontFamily: "'Nunito', sans-serif", fontWeight: 700, fontSize: 17,
-          border: "none", borderRadius: 8, cursor: "pointer",
-          boxShadow: "0 4px 16px rgba(231,84,128,0.4)",
-          transition: "background-color 0.15s, transform 0.1s",
+          backgroundColor: C.pinkLight, color: C.burgundy,
+          fontFamily: "'Nunito', sans-serif", fontWeight: 800, fontSize: 17,
+          border: "none", borderRadius: 12, cursor: "pointer",
+          boxShadow: "4px 4px 0 #E8557F",
+          transition: "transform 0.12s, box-shadow 0.12s",
         }}
-          onMouseEnter={e => { e.currentTarget.style.backgroundColor = C.crimsonHv; e.currentTarget.style.transform = "translateY(-1px)"; }}
-          onMouseLeave={e => { e.currentTarget.style.backgroundColor = C.crimson; e.currentTarget.style.transform = "none"; }}>
+          onMouseEnter={e => { e.currentTarget.style.transform = "translate(-1px, -1px)"; e.currentTarget.style.boxShadow = "5px 5px 0 #E8557F"; }}
+          onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "4px 4px 0 #E8557F"; }}>
           {t.final_cta} —{" "}
           <span style={{ textDecoration: "line-through", opacity: 0.6, marginRight: 4 }}>{originalPrice}</span>
-          <span style={{ color: "#FFE066" }}>{price}</span>
+          <span style={{ color: C.crimson }}>{price}</span>
           {localPrice && <span style={{ fontSize: 12, opacity: 0.75, marginLeft: 6 }}>≈ {localPrice}</span>}
         </button>
       </section>
@@ -884,7 +883,7 @@ export default function StoreLanding() {
       {/* ── FOOTER ── */}
       <footer style={{ borderTop: `1px solid ${C.border}`, padding: "32px 24px", backgroundColor: C.bg }}>
         <div style={{ maxWidth: 640, margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
-          <span style={{ ...S.heading, fontSize: 16, letterSpacing: "0.08em", color: C.burgundy }}>CÓDIGOS</span>
+          <img src="/brand/codigos-horizontal.svg" alt="Códigos — Empoderamiento Femenino" style={{ height: 44, width: "auto" }} />
           <div style={{ display: "flex", gap: 16, flexWrap: "wrap", justifyContent: "center" }}>
             {[
               { label: t.footer_products, action: () => navigate(`/productos?lang=${lang}`) },
@@ -934,14 +933,14 @@ export default function StoreLanding() {
       </footer>
 
       {/* ── MOBILE STICKY CTA ── */}
-      <div className="md:hidden" style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "10px 16px", backgroundColor: "rgba(123,30,58,0.96)", backdropFilter: "blur(12px)", zIndex: 40, display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+      <div className="md:hidden" style={{ position: "fixed", bottom: 0, left: 0, right: 0, padding: "10px 16px", backgroundColor: "rgba(122,28,56,0.96)", backdropFilter: "blur(12px)", zIndex: 40, display: "flex", alignItems: "center", justifyContent: "space-between", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
         <div>
           <span style={{ fontSize: 10, color: "rgba(255,255,255,0.6)", display: "block", letterSpacing: "0.06em", textTransform: "uppercase" }}>{t.format_bundle}</span>
           <span style={{ fontSize: 13, color: "rgba(255,255,255,0.55)", textDecoration: "line-through", display: "block" }}>{originalPrice}</span>
-          <span style={{ fontSize: 18, fontWeight: 700, color: "#FFE066", fontFamily: "'Playfair Display', serif" }}>{price}</span>
+          <span style={{ fontSize: 18, fontWeight: 700, color: "#FFF1F4", fontFamily: "'Fraunces', Georgia, serif" }}>{price}</span>
           {localPrice && <span style={{ fontSize: 10, color: "rgba(255,255,255,0.6)", display: "block" }}>≈ {localPrice}</span>}
         </div>
-        <button onClick={handleBuy} style={{ padding: "12px 24px", backgroundColor: C.crimson, color: C.pureWhite, fontWeight: 700, fontSize: 14, border: "none", borderRadius: 6, cursor: "pointer", boxShadow: "0 2px 8px rgba(231,84,128,0.4)" }}>{t.buy_cta} →</button>
+        <button onClick={handleBuy} style={{ padding: "12px 24px", backgroundColor: C.pinkLight, color: C.burgundy, fontWeight: 800, fontSize: 14, border: "none", borderRadius: 8, cursor: "pointer", boxShadow: "3px 3px 0 #E8557F" }}>{t.buy_cta} →</button>
       </div>
       <div className="md:hidden" style={{ height: 64 }} />
 

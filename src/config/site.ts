@@ -33,32 +33,35 @@ export const site = {
     },
   },
 
+  // Paleta del sistema de diseño Códigos (tokens.json)
   colors: {
-    bg:           "#FFF7F9",
-    surface:      "#F7C6D0",
-    border:       "#F7C6D0",
-    crimson:      "#E75480",
-    crimsonHv:    "#D44370",
-    crimsonBg:    "rgba(231,84,128,0.08)",
-    crimsonMuted: "rgba(231,84,128,0.12)",
-    white:        "#2B2B2B",
-    secondary:    "#5A3D4A",
-    muted:        "#9A7B8A",
-    gold:         "#7B1E3A",
-    pureWhite:    "#FFFFFF",
-    pink:         "#F7C6D0",
-    pinkLight:    "#FFF7F9",
-    burgundy:     "#7B1E3A",
-    darkBurg:     "#4A0F24",
+    bg:           "#FFF1F4",               // rubor
+    surface:      "#F6C6D3",               // rosa-palido
+    border:       "#F1DCE2",               // borde
+    crimson:      "#A12B52",               // frambuesa — antetítulos, enlaces, acentos
+    crimsonHv:    "#7A1C38",               // vino
+    crimsonBg:    "rgba(161,43,82,0.08)",
+    crimsonMuted: "rgba(161,43,82,0.12)",
+    white:        "#4E0F22",               // tinta — texto principal
+    secondary:    "#7A4A58",               // texto-suave
+    muted:        "#7A4A58",               // texto-suave
+    gold:         "#7A1C38",               // vino
+    pureWhite:    "#FFFFFF",               // blanco
+    pink:         "#F6C6D3",               // rosa-palido
+    pinkLight:    "#FFF1F4",               // rubor
+    burgundy:     "#7A1C38",               // vino — color de la marca
+    darkBurg:     "#4E0F22",               // tinta
+    rosa:         "#E8557F",               // rosa — sombra dura del logotipo
+    oro:          "#C9A86A",               // oro — solo decorativo
     success:      "#5A9E6F",
     error:        "#C44D4D",
     warn:         "#C4983D",
   },
 
   fonts: {
-    heading:      "'Playfair Display', Georgia, serif",
+    heading:      "'Fraunces', Georgia, serif",
     body:         "'Nunito', sans-serif",
-    googleImport: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap",
+    googleImport: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Nunito:wght@600..900&display=swap",
   },
 
   social: {

@@ -1,10 +1,10 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 
 const C = {
-  crimson: "#E75480", crimsonHv: "#D44370", burgundy: "#7B1E3A",
-  pureWhite: "#FFFFFF", bg: "#FFF7F9", surface: "#F7C6D0",
-  white: "#2B2B2B", secondary: "#5A3D4A", muted: "#9A7B8A",
-  border: "#F7C6D0", success: "#5A9E6F",
+  crimson: "#A12B52", crimsonHv: "#7A1C38", burgundy: "#7A1C38",
+  pureWhite: "#FFFFFF", bg: "#FFF1F4", surface: "#F6C6D3",
+  white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
+  border: "#F6C6D3", success: "#5A9E6F",
 };
 
 type Lang = "es" | "en" | "it";
@@ -256,17 +256,17 @@ export default function ChatWidget({
           display: "flex", alignItems: "center", gap: 8,
           padding: "10px 16px 10px 12px",
           borderRadius: 28,
-          backgroundColor: "#1B8A9E", border: "none", cursor: "pointer",
-          boxShadow: "0 4px 16px rgba(27,138,158,0.35)",
+          backgroundColor: C.burgundy, border: "none", cursor: "pointer",
+          boxShadow: "4px 4px 0 #E8557F",
           transition: "transform 0.2s ease, box-shadow 0.2s ease",
         }}
         onMouseEnter={e => {
           e.currentTarget.style.transform = "scale(1.05)";
-          e.currentTarget.style.boxShadow = "0 6px 20px rgba(27,138,158,0.45)";
+          e.currentTarget.style.boxShadow = "5px 5px 0 #E8557F";
         }}
         onMouseLeave={e => {
           e.currentTarget.style.transform = "scale(1)";
-          e.currentTarget.style.boxShadow = "0 4px 16px rgba(27,138,158,0.35)";
+          e.currentTarget.style.boxShadow = "4px 4px 0 #E8557F";
         }}
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill={C.pureWhite}>
@@ -336,7 +336,7 @@ export default function ChatWidget({
         {/* Header */}
         <div style={{
           padding: "14px 16px",
-          background: `linear-gradient(135deg, ${C.burgundy}, ${C.crimson})`,
+          background: C.burgundy,
           display: "flex", alignItems: "center", justifyContent: "space-between",
           flexShrink: 0,
         }}>
@@ -351,7 +351,7 @@ export default function ChatWidget({
               }}
             />
             <div>
-              <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, fontWeight: 700, color: C.pureWhite, margin: 0 }}>Daya</p>
+              <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 15, fontWeight: 700, color: C.pureWhite, margin: 0 }}>Daya</p>
               <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
                 <span style={{
                   width: 7, height: 7, borderRadius: "50%",

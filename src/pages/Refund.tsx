@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
   success: "#5A9E6F",
 };
 
@@ -102,7 +102,7 @@ export default function Refund() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
       <nav style={{ position: "sticky", top: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px", backgroundColor: C.bg, borderBottom: `1px solid ${C.surface}` }}>
-        <button onClick={() => navigate("/")} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
+        <button onClick={() => navigate("/")} style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           <button onClick={() => navigate("/")} style={{ fontSize: 12, color: C.secondary, background: "none", border: "none", cursor: "pointer" }}>{t.back}</button>
           <button onClick={() => setLang(lang === "es" ? "en" : lang === "en" ? "it" : "es")} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", color: C.muted, background: "none", border: "none", cursor: "pointer" }}>{lang === "es" ? "EN" : lang === "en" ? "IT" : "ES"}</button>
@@ -116,16 +116,16 @@ export default function Refund() {
 
         {/* Promise block */}
         <div style={{ backgroundColor: C.surface, borderLeft: `4px solid ${C.success}`, padding: "20px 24px", marginBottom: 40 }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, letterSpacing: "0.06em", marginBottom: 10 }}>{t.promise_title}</p>
+          <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, letterSpacing: "0.06em", marginBottom: 10 }}>{t.promise_title}</p>
           <p style={{ fontSize: 14, color: C.secondary, lineHeight: 1.8 }}>{t.promise}</p>
         </div>
 
         {/* Steps */}
         <div style={{ marginBottom: 40 }}>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", color: C.white, marginBottom: 16 }}>{t.how_title}</h2>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", color: C.white, marginBottom: 16 }}>{t.how_title}</h2>
           {t.steps.map((step, i) => (
             <div key={i} style={{ display: "flex", gap: 16, marginBottom: 16, alignItems: "flex-start" }}>
-              <span style={{ width: 28, height: 28, backgroundColor: C.crimson, color: C.white, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
+              <span style={{ width: 28, height: 28, backgroundColor: C.crimson, color: C.white, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 13, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{i + 1}</span>
               <p style={{ fontSize: 14, color: C.secondary, lineHeight: 1.7, paddingTop: 4 }}>{step}</p>
             </div>
           ))}
@@ -133,7 +133,7 @@ export default function Refund() {
 
         {/* Conditions */}
         <div style={{ marginBottom: 48 }}>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", color: C.white, marginBottom: 16 }}>{t.conditions_title}</h2>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 15, fontWeight: 700, letterSpacing: "0.06em", color: C.white, marginBottom: 16 }}>{t.conditions_title}</h2>
           {t.conditions.map((c, i) => (
             <div key={i} style={{ display: "flex", gap: 12, marginBottom: 12, alignItems: "flex-start" }}>
               <span style={{ color: C.success, fontSize: 14, flexShrink: 0, marginTop: 2 }}>✓</span>
@@ -144,7 +144,7 @@ export default function Refund() {
 
         {/* Contact */}
         <div style={{ backgroundColor: C.surface, padding: "24px", textAlign: "center" }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, letterSpacing: "0.06em", marginBottom: 8 }}>{t.contact_title}</p>
+          <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700, color: C.white, letterSpacing: "0.06em", marginBottom: 8 }}>{t.contact_title}</p>
           <p style={{ fontSize: 13, color: C.secondary, marginBottom: 20 }}>{t.contact}</p>
           <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
             <a href="https://wa.me/1234567890" target="_blank" rel="noopener" className="btn-primary" style={{ maxWidth: 220, textDecoration: "none" }}>

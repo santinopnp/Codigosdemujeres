@@ -10,13 +10,13 @@ const CAPTURED_KEY  = "codigos_lead_captured";
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
 
 const COLORS = {
-  bg:          "#FBF7F1",
-  cherry:      "#C2506A",
-  cherryHover: "#A8445A",
-  burgundy:    "#4A1A2E",
-  gold:        "#B8936A",
-  muted:       "#7A6652",
-  border:      "#F3EBE0",
+  bg:          "#FFF1F4",
+  cherry:      "#A12B52",
+  cherryHover: "#7A1C38",
+  burgundy:    "#4E0F22",
+  gold:        "#C9A86A",
+  muted:       "#7A4A58",
+  border:      "#F1DCE2",
   overlay:     "rgba(0,0,0,0.5)",
   white:       "#FFFFFF",
 };
@@ -237,13 +237,13 @@ export default function LeadPopup() {
         </button>
 
         {/* Decorative top bar */}
-        <div style={{ height: 4, background: `linear-gradient(90deg, ${COLORS.cherry}, ${COLORS.gold})` }} />
+        <div style={{ height: 4, background: COLORS.cherry }} />
 
         <div style={{ padding: "32px 28px 28px" }}>
           {!success ? (
             <>
               <h2 style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontSize: 22, fontWeight: 700, color: COLORS.burgundy,
                 margin: "0 0 10px", lineHeight: 1.3, paddingRight: 24,
               }}>
@@ -337,7 +337,7 @@ export default function LeadPopup() {
             <div style={{ textAlign: "center", padding: "8px 0" }}>
               <div style={{
                 width: 56, height: 56, borderRadius: "50%",
-                backgroundColor: "#F9EFF5",
+                backgroundColor: "#FBF6F7",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 margin: "0 auto 16px",
               }}>
@@ -347,7 +347,7 @@ export default function LeadPopup() {
               </div>
 
               <p style={{
-                fontFamily: "'Playfair Display', Georgia, serif",
+                fontFamily: "'Fraunces', Georgia, serif",
                 fontSize: 20, fontWeight: 700, color: COLORS.burgundy,
                 margin: "0 0 8px", lineHeight: 1.3,
               }}>
@@ -371,7 +371,7 @@ export default function LeadPopup() {
                     display: "block", padding: "14px 24px",
                     backgroundColor: COLORS.cherry, color: COLORS.white,
                     borderRadius: 10, textDecoration: "none",
-                    fontFamily: "'Playfair Display', Georgia, serif",
+                    fontFamily: "'Fraunces', Georgia, serif",
                     fontSize: 15, fontWeight: 700, letterSpacing: "0.04em",
                     transition: "background-color 0.2s",
                   }}

@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
 };
 
 const CONTENT = {
@@ -150,7 +150,7 @@ export default function Terms() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
       <nav style={{ position: "sticky", top: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px", backgroundColor: C.bg, borderBottom: `1px solid ${C.surface}` }}>
-        <button onClick={() => navigate("/")} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
+        <button onClick={() => navigate("/")} style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           <button onClick={() => navigate("/")} style={{ fontSize: 12, color: C.secondary, background: "none", border: "none", cursor: "pointer" }}>{t.back}</button>
           <button onClick={() => setLang(lang === "es" ? "en" : lang === "en" ? "it" : "es")} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.muted, background: "none", border: "none", cursor: "pointer" }}>{lang === "es" ? "EN" : lang === "en" ? "IT" : "ES"}</button>
@@ -161,7 +161,7 @@ export default function Terms() {
         <p style={{ fontSize: 12, color: C.muted, marginBottom: 40 }}>{t.updated}</p>
         {t.sections.map((s, i) => (
           <div key={i} style={{ marginBottom: 32 }}>
-            <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, fontWeight: 700, letterSpacing: "0.01em", color: C.white, marginBottom: 10 }}>{s.h}</h2>
+            <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700, letterSpacing: "0.01em", color: C.white, marginBottom: 10 }}>{s.h}</h2>
             <p style={{ fontSize: 14, color: C.secondary, lineHeight: 1.8 }}>{s.p}</p>
           </div>
         ))}

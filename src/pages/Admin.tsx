@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
   success: "#5A9E6F", error: "#C44D4D", warn: "#C4983D", pureWhite: "#FFFFFF",
 };
 
@@ -133,7 +133,7 @@ function fmtDate(iso: string | null) {
 
 function Badge({ label, color }: { label: string; color: string }) {
   return (
-    <span style={{ padding: "2px 8px", fontSize: 10, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color, border: `1px solid ${color}` }}>
+    <span style={{ padding: "2px 8px", fontSize: 10, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", color, border: `1px solid ${color}` }}>
       {label}
     </span>
   );
@@ -152,7 +152,7 @@ function PillBadge({ label, bg, color }: { label: string; bg: string; color: str
 }
 
 function Spinner() {
-  return <div style={{ width: 24, height: 24, border: "3px solid #D9C9B0", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />;
+  return <div style={{ width: 24, height: 24, border: "3px solid #F1DCE2", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />;
 }
 
 function uid() {
@@ -178,7 +178,7 @@ function Login({ onAuth }: { onAuth: (t: string) => void }) {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 20 }}>
-      <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.12em", color: C.white, marginBottom: 32 }}>CODIGOS · ADMIN</span>
+      <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.12em", color: C.white, marginBottom: 32 }}>CODIGOS · ADMIN</span>
       <div style={{ width: "100%", maxWidth: 320 }}>
         <label className="field-label">Admin token</label>
         <input className="input" type="password" placeholder="••••••••" value={token} onChange={e => setToken(e.target.value)} onKeyDown={e => e.key === "Enter" && submit()} autoFocus />
@@ -235,14 +235,14 @@ function OrdersPanel({ token }: { token: string }) {
           { label: "Fallidos", value: String(stats.failed),  color: C.error }].map(s => (
           <div key={s.label} style={{ backgroundColor: C.surface, padding: "14px 18px", borderLeft: `3px solid ${s.color}` }}>
             <p style={{ fontSize: 10, color: C.muted, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>{s.label}</p>
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 24, fontWeight: 700, color: s.color }}>{s.value}</p>
+            <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 24, fontWeight: 700, color: s.color }}>{s.value}</p>
           </div>
         ))}
       </div>
 
       <div style={{ display: "flex", gap: 8, marginBottom: 16, flexWrap: "wrap" }}>
         {["all","paid","pending","failed","refunded"].map(f => (
-          <button key={f} onClick={() => setFilter(f)} style={{ padding: "5px 12px", fontSize: 10, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer", backgroundColor: filter === f ? C.crimson : "transparent", color: filter === f ? C.white : C.muted, border: `1px solid ${filter === f ? C.crimson : C.border}` }}>
+          <button key={f} onClick={() => setFilter(f)} style={{ padding: "5px 12px", fontSize: 10, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", cursor: "pointer", backgroundColor: filter === f ? C.crimson : "transparent", color: filter === f ? C.white : C.muted, border: `1px solid ${filter === f ? C.crimson : C.border}` }}>
             {f === "all" ? "Todos" : f}
           </button>
         ))}
@@ -265,13 +265,13 @@ function OrdersPanel({ token }: { token: string }) {
                   <td style={{ padding: "10px", color: C.muted, whiteSpace: "nowrap" }}>{fmt(o.created_at)}</td>
                   <td style={{ padding: "10px", color: C.secondary, maxWidth: 160, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{o.email}</td>
                   <td style={{ padding: "10px", color: C.secondary, textTransform: "uppercase", fontWeight: 600 }}>{o.format}</td>
-                  <td style={{ padding: "10px", color: C.white, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700 }}>${o.amount_usd}</td>
+                  <td style={{ padding: "10px", color: C.white, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700 }}>${o.amount_usd}</td>
                   <td style={{ padding: "10px", color: C.muted }}>{o.payment_provider ?? o.payment_method}</td>
                   <td style={{ padding: "10px" }}><Badge label={o.status} color={STATUS_COLOR[o.status] ?? C.muted} /></td>
                   <td style={{ padding: "10px", color: C.muted, maxWidth: 100, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontFamily: "monospace", fontSize: 10 }}>{o.provider_ref ?? "—"}</td>
                   <td style={{ padding: "10px" }}>
                     {o.status === "paid" && (
-                      <button onClick={() => refund(o.id)} disabled={refunding === o.id} style={{ fontSize: 10, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: C.error, background: "none", border: `1px solid ${C.error}`, padding: "3px 8px", cursor: "pointer", opacity: refunding === o.id ? 0.5 : 1 }}>
+                      <button onClick={() => refund(o.id)} disabled={refunding === o.id} style={{ fontSize: 10, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, letterSpacing: "0.06em", textTransform: "uppercase", color: C.error, background: "none", border: `1px solid ${C.error}`, padding: "3px 8px", cursor: "pointer", opacity: refunding === o.id ? 0.5 : 1 }}>
                         {refunding === o.id ? "…" : "Reembolsar"}
                       </button>
                     )}
@@ -310,7 +310,7 @@ function EasySocialPanel({ token }: { token: string }) {
       }}>
         <div style={{
           width: 42, height: 42, borderRadius: 12,
-          background: `linear-gradient(135deg, ${C.crimson}, #D4708A)`,
+          background: `linear-gradient(135deg, ${C.crimson}, #E8557F)`,
           display: "flex", alignItems: "center", justifyContent: "center",
           fontSize: 22, boxShadow: `0 4px 12px ${C.crimson}40`,
         }}>
@@ -318,7 +318,7 @@ function EasySocialPanel({ token }: { token: string }) {
         </div>
         <div>
           <p style={{
-            fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16, fontWeight: 700,
+            fontFamily: "'Fraunces', Georgia, serif", fontSize: 16, fontWeight: 700,
             color: C.white, letterSpacing: "0.06em",
           }}>
             Easy Social Media
@@ -473,7 +473,7 @@ function ConexionesSubTab({ token }: { token: string }) {
       {/* Header */}
       <div style={{ marginBottom: 24 }}>
         <p style={{
-          fontFamily: "'Playfair Display', Georgia, serif",
+          fontFamily: "'Fraunces', Georgia, serif",
           fontSize: 17, fontWeight: 700, color: C.white, marginBottom: 6,
         }}>
           Cuentas de Redes Sociales
@@ -940,7 +940,7 @@ function EasyBotSubTab({ token }: { token: string }) {
               /* User bubble */
               <div style={{
                 maxWidth: "75%", padding: "12px 16px", borderRadius: "16px 16px 4px 16px",
-                background: `linear-gradient(135deg, ${C.crimson}, #D4708A)`,
+                background: `linear-gradient(135deg, ${C.crimson}, #E8557F)`,
                 color: C.pureWhite, fontSize: 13, lineHeight: 1.6,
                 boxShadow: `0 2px 8px ${C.crimson}30`,
               }}>
@@ -1262,7 +1262,7 @@ function EasyBotSubTab({ token }: { token: string }) {
           disabled={loading || !input.trim()}
           style={{
             width: 44, height: 44, borderRadius: 12,
-            background: `linear-gradient(135deg, ${C.crimson}, #D4708A)`,
+            background: `linear-gradient(135deg, ${C.crimson}, #E8557F)`,
             color: C.pureWhite, border: "none", cursor: "pointer",
             fontSize: 18, display: "flex", alignItems: "center", justifyContent: "center",
             boxShadow: `0 3px 10px ${C.crimson}30`,
@@ -1370,7 +1370,7 @@ function CalendarioSubTab({ token }: { token: string }) {
           ←
         </button>
         <span style={{
-          fontFamily: "'Playfair Display', Georgia, serif", fontSize: 20,
+          fontFamily: "'Fraunces', Georgia, serif", fontSize: 20,
           fontWeight: 700, color: C.white, letterSpacing: "0.04em",
           minWidth: 200, textAlign: "center",
         }}>
@@ -1465,7 +1465,7 @@ function CalendarioSubTab({ token }: { token: string }) {
           animation: "fadeSlideIn 0.2s ease",
         }}>
           <p style={{
-            fontFamily: "'Playfair Display', Georgia, serif", fontSize: 14,
+            fontFamily: "'Fraunces', Georgia, serif", fontSize: 14,
             fontWeight: 700, color: C.white, marginBottom: 12,
           }}>
             {selectedDay} de {monthNames[month]}
@@ -1776,7 +1776,7 @@ function CampanasSubTab({ token }: { token: string }) {
           animation: "fadeSlideIn 0.3s ease",
         }}>
           <p style={{
-            fontFamily: "'Playfair Display', Georgia, serif", fontSize: 16,
+            fontFamily: "'Fraunces', Georgia, serif", fontSize: 16,
             fontWeight: 700, color: C.white, marginBottom: 20,
           }}>
             Planificador de Campana AI
@@ -1884,7 +1884,7 @@ function CampanasSubTab({ token }: { token: string }) {
               style={{
                 padding: "12px 28px", fontSize: 14, fontWeight: 700,
                 color: C.pureWhite,
-                background: `linear-gradient(135deg, ${C.crimson}, #D4708A)`,
+                background: `linear-gradient(135deg, ${C.crimson}, #E8557F)`,
                 border: "none", borderRadius: 8, cursor: "pointer",
                 boxShadow: `0 3px 12px ${C.crimson}30`,
                 opacity: generating || !planGoal.trim() ? 0.5 : 1,
@@ -1904,7 +1904,7 @@ function CampanasSubTab({ token }: { token: string }) {
             <>
               {/* Generated plan timeline */}
               <p style={{
-                fontFamily: "'Playfair Display', Georgia, serif", fontSize: 14,
+                fontFamily: "'Fraunces', Georgia, serif", fontSize: 14,
                 fontWeight: 700, color: C.white, marginBottom: 16,
               }}>
                 Plan generado: {generatedPlan.length} publicaciones
@@ -2032,7 +2032,7 @@ function CampanasSubTab({ token }: { token: string }) {
                   <div style={{ flex: 1, minWidth: 0 }}>
                     <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 6, flexWrap: "wrap" }}>
                       <p style={{
-                        fontFamily: "'Playfair Display', Georgia, serif", fontSize: 15,
+                        fontFamily: "'Fraunces', Georgia, serif", fontSize: 15,
                         fontWeight: 700, color: C.white,
                       }}>
                         {campaign.name}
@@ -2206,7 +2206,7 @@ function MetricasSubTab({ token }: { token: string }) {
                   {card.label}
                 </p>
                 <p style={{
-                  fontFamily: "'Playfair Display', Georgia, serif", fontSize: 24,
+                  fontFamily: "'Fraunces', Georgia, serif", fontSize: 24,
                   fontWeight: 700, color: card.color,
                 }}>
                   {card.format(card.value)}
@@ -2289,7 +2289,7 @@ function MetricasSubTab({ token }: { token: string }) {
                     </td>
                     <td style={{ padding: "10px 14px" }}>
                       <span style={{
-                        fontFamily: "'Playfair Display', Georgia, serif",
+                        fontFamily: "'Fraunces', Georgia, serif",
                         fontSize: 14, fontWeight: 700, color: C.crimson,
                       }}>
                         {post.engagement_rate.toFixed(1)}%
@@ -2318,7 +2318,7 @@ function MetricasSubTab({ token }: { token: string }) {
           }}>
             <span style={{ fontSize: 18 }}>🤖</span>
             <p style={{
-              fontFamily: "'Playfair Display', Georgia, serif", fontSize: 13,
+              fontFamily: "'Fraunces', Georgia, serif", fontSize: 13,
               fontWeight: 700, color: C.crimson, letterSpacing: "0.04em",
             }}>
               Easy Bot dice...
@@ -2476,10 +2476,10 @@ function TestimonialsPanel({ token }: { token: string }) {
                 <p style={{ fontSize: 13, color: C.secondary, lineHeight: 1.5 }}>{t.text_es}</p>
               </div>
               <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
-                <button onClick={() => toggle(t)} style={{ fontSize: 10, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: t.active ? C.muted : C.success, background: "none", border: `1px solid ${t.active ? C.border : C.success}`, padding: "4px 10px", cursor: "pointer" }}>
+                <button onClick={() => toggle(t)} style={{ fontSize: 10, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, color: t.active ? C.muted : C.success, background: "none", border: `1px solid ${t.active ? C.border : C.success}`, padding: "4px 10px", cursor: "pointer" }}>
                   {t.active ? "Ocultar" : "Mostrar"}
                 </button>
-                <button onClick={() => remove(t.id)} style={{ fontSize: 10, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, color: C.error, background: "none", border: `1px solid ${C.error}`, padding: "4px 10px", cursor: "pointer" }}>
+                <button onClick={() => remove(t.id)} style={{ fontSize: 10, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, color: C.error, background: "none", border: `1px solid ${C.error}`, padding: "4px 10px", cursor: "pointer" }}>
                   Eliminar
                 </button>
               </div>
@@ -2557,7 +2557,7 @@ function ChatsPanel({ token }: { token: string }) {
 
           {/* Expanded messages */}
           {expandedId === conv.id && (
-            <div style={{ backgroundColor: "#FAFAFA", padding: "12px 16px", borderLeft: `3px solid ${C.crimson}`, maxHeight: 400, overflowY: "auto" }}>
+            <div style={{ backgroundColor: "#FBF6F7", padding: "12px 16px", borderLeft: `3px solid ${C.crimson}`, maxHeight: 400, overflowY: "auto" }}>
               {loadingMsgs ? (
                 <div style={{ display: "flex", justifyContent: "center", padding: 20 }}><Spinner /></div>
               ) : messages.map((msg, i) => (
@@ -2624,7 +2624,7 @@ function DashboardPanel({ token }: { token: string }) {
         ].map(s => (
           <div key={s.label} style={{ backgroundColor: C.surface, padding: "16px 18px", borderLeft: `3px solid ${s.color}` }}>
             <p style={{ fontSize: 10, color: C.muted, textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 6 }}>{s.label}</p>
-            <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 26, fontWeight: 700, color: s.color }}>
+            <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 26, fontWeight: 700, color: s.color }}>
               ${s.value.toFixed(2)}
             </p>
           </div>
@@ -2849,7 +2849,7 @@ function BibliotecaPanel({ token }: { token: string }) {
     <div>
       {/* ── Media Library ── */}
       <div style={{ marginBottom: 28 }}>
-        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 16px" }}>Biblioteca de Medios</h2>
+        <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 16px" }}>Biblioteca de Medios</h2>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", gap: 12 }}>
           {[
             { src: "/cover-es.png", label: "Portada ES", type: "Imagen" },
@@ -2877,12 +2877,12 @@ function BibliotecaPanel({ token }: { token: string }) {
       {/* ── Chapter Management ── */}
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
         <div>
-          <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: C.white, fontSize: 20, margin: 0 }}>Capítulos</h2>
+          <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", color: C.white, fontSize: 20, margin: 0 }}>Capítulos</h2>
           <p style={{ color: C.muted, fontSize: 12, marginTop: 4 }}>
             {counts.ebook} capítulos eBook · {counts.audio} capítulos Audio
           </p>
         </div>
-        <button onClick={openNew} style={{ background: C.crimson, color: "#FBF7F1", border: "none", padding: "10px 20px", cursor: "pointer", fontFamily: "'Playfair Display', Georgia, serif", fontSize: 12, letterSpacing: ".08em" }}>
+        <button onClick={openNew} style={{ background: C.crimson, color: "#FFF1F4", border: "none", padding: "10px 20px", cursor: "pointer", fontFamily: "'Fraunces', Georgia, serif", fontSize: 12, letterSpacing: ".08em" }}>
           + Nuevo capítulo
         </button>
       </div>
@@ -2894,7 +2894,7 @@ function BibliotecaPanel({ token }: { token: string }) {
             padding: "8px 20px", border: "none", background: "none", cursor: "pointer",
             color: filterFormat === f ? C.white : C.muted, fontSize: 12, letterSpacing: ".06em",
             borderBottom: filterFormat === f ? `2px solid ${C.crimson}` : "2px solid transparent",
-            fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700,
+            fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700,
           }}>
             {f === "all" ? "Todos" : f === "ebook" ? "eBook" : "Audio"}
           </button>
@@ -2910,7 +2910,7 @@ function BibliotecaPanel({ token }: { token: string }) {
       {/* Editor form */}
       {isEditorOpen && (
         <div style={{ background: C.surface, padding: 20, marginBottom: 24, border: `1px solid ${C.border}` }}>
-          <h3 style={{ color: C.white, fontFamily: "'Playfair Display', Georgia, serif", marginTop: 0, marginBottom: 16 }}>
+          <h3 style={{ color: C.white, fontFamily: "'Fraunces', Georgia, serif", marginTop: 0, marginBottom: 16 }}>
             {editing ? `Editar capítulo ${editing.chapter_number}` : "Nuevo capítulo"}
           </h3>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 12 }}>
@@ -2970,7 +2970,7 @@ function BibliotecaPanel({ token }: { token: string }) {
             <button onClick={() => { setForm({}); setEditing(null); setMsg(null); }} style={{ background: "none", border: `1px solid ${C.border}`, color: C.muted, padding: "8px 20px", cursor: "pointer", fontSize: 13 }}>
               Cancelar
             </button>
-            <button onClick={save} disabled={saving} style={{ background: C.crimson, color: "#FBF7F1", border: "none", padding: "8px 24px", cursor: saving ? "default" : "pointer", fontSize: 13, fontFamily: "'Playfair Display', Georgia, serif", opacity: saving ? 0.7 : 1 }}>
+            <button onClick={save} disabled={saving} style={{ background: C.crimson, color: "#FFF1F4", border: "none", padding: "8px 24px", cursor: saving ? "default" : "pointer", fontSize: 13, fontFamily: "'Fraunces', Georgia, serif", opacity: saving ? 0.7 : 1 }}>
               {saving ? "Guardando..." : "Guardar"}
             </button>
           </div>
@@ -3015,7 +3015,7 @@ function BibliotecaPanel({ token }: { token: string }) {
                   <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
                     <button
                       onClick={() => setPreviewId(previewId === ch.id ? null : ch.id)}
-                      style={{ background: previewId === ch.id ? C.crimson : "none", border: `1px solid ${C.crimson}`, color: previewId === ch.id ? "#FBF7F1" : C.crimson, padding: "5px 12px", cursor: "pointer", fontSize: 12 }}
+                      style={{ background: previewId === ch.id ? C.crimson : "none", border: `1px solid ${C.crimson}`, color: previewId === ch.id ? "#FFF1F4" : C.crimson, padding: "5px 12px", cursor: "pointer", fontSize: 12 }}
                     >
                       {ch.format === "ebook" ? "Leer" : "▶ Play"}
                     </button>
@@ -3151,8 +3151,8 @@ function LeadsPanel({ token }: { token: string }) {
   return (
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20, flexWrap: "wrap", gap: 12 }}>
-        <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: C.white, fontSize: 20, margin: 0 }}>Leads</h2>
-        <button onClick={exportCsv} style={{ padding: "8px 20px", background: "none", border: `1px solid ${C.warn}`, color: C.warn, cursor: "pointer", fontSize: 12, fontFamily: "'Playfair Display', Georgia, serif" }}>
+        <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", color: C.white, fontSize: 20, margin: 0 }}>Leads</h2>
+        <button onClick={exportCsv} style={{ padding: "8px 20px", background: "none", border: `1px solid ${C.warn}`, color: C.warn, cursor: "pointer", fontSize: 12, fontFamily: "'Fraunces', Georgia, serif" }}>
           ↓ Exportar CSV
         </button>
       </div>
@@ -3338,7 +3338,7 @@ function DocumentosPanel({ token }: { token: string }) {
 
   return (
     <div>
-      <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 20px" }}>Documentos</h2>
+      <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 20px" }}>Documentos</h2>
 
       {/* Upload */}
       <div style={{ background: C.surface, border: `1px solid ${C.border}`, padding: "18px 20px", marginBottom: 20 }}>
@@ -3369,7 +3369,7 @@ function DocumentosPanel({ token }: { token: string }) {
           </div>
           <button
             onClick={upload} disabled={!file || uploading}
-            style={{ padding: "9px 24px", background: file && !uploading ? C.crimson : C.muted, color: "#FBF7F1", border: "none", cursor: file && !uploading ? "pointer" : "default", fontSize: 13, fontFamily: "'Playfair Display', Georgia, serif", whiteSpace: "nowrap" }}
+            style={{ padding: "9px 24px", background: file && !uploading ? C.crimson : C.muted, color: "#FFF1F4", border: "none", cursor: file && !uploading ? "pointer" : "default", fontSize: 13, fontFamily: "'Fraunces', Georgia, serif", whiteSpace: "nowrap" }}
           >
             {uploading ? "Subiendo…" : "Subir"}
           </button>
@@ -3479,13 +3479,13 @@ function CredencialesPanel() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: "'Playfair Display', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 20px" }}>Accesos & Credenciales</h2>
+      <h2 style={{ fontFamily: "'Fraunces', Georgia, serif", color: C.white, fontSize: 20, margin: "0 0 20px" }}>Accesos & Credenciales</h2>
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 16 }}>
         {creds.map(card => (
           <div key={card.title} style={{ background: C.surface, border: `1px solid ${C.border}`, padding: "18px 20px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, borderBottom: `1px solid ${C.border}`, paddingBottom: 10 }}>
               <span style={{ fontSize: 16 }}>{card.icon}</span>
-              <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 13, color: C.warn, fontWeight: 700, letterSpacing: ".05em" }}>{card.title}</span>
+              <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 13, color: C.warn, fontWeight: 700, letterSpacing: ".05em" }}>{card.title}</span>
             </div>
             {card.rows.map(row => (
               <div key={row.k} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 10, gap: 8 }}>
@@ -3521,7 +3521,7 @@ function DashboardShell({ token }: { token: string }) {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
       <nav style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px", borderBottom: `1px solid ${C.surface}`, position: "sticky", top: 0, zIndex: 40, backgroundColor: C.bg }}>
-        <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 16, letterSpacing: "0.1em", color: C.white }}>CODIGOS · ADMIN</span>
+        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 16, letterSpacing: "0.1em", color: C.white }}>CODIGOS · ADMIN</span>
         <button onClick={() => window.location.reload()} style={{ fontSize: 11, color: C.error, background: "none", border: "none", cursor: "pointer", letterSpacing: "0.08em", textTransform: "uppercase" }}>
           Salir
         </button>
@@ -3529,7 +3529,7 @@ function DashboardShell({ token }: { token: string }) {
 
       <div style={{ display: "flex", gap: 0, borderBottom: `1px solid ${C.border}`, overflowX: "auto" }}>
         {tabs.map(t => (
-          <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: "12px 24px", fontSize: 12, fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", background: "none", border: "none", cursor: "pointer", color: tab === t.id ? C.white : C.muted, borderBottom: tab === t.id ? `2px solid ${C.crimson}` : "2px solid transparent", whiteSpace: "nowrap" }}>
+          <button key={t.id} onClick={() => setTab(t.id)} style={{ padding: "12px 24px", fontSize: 12, fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, letterSpacing: "0.08em", textTransform: "uppercase", background: "none", border: "none", cursor: "pointer", color: tab === t.id ? C.white : C.muted, borderBottom: tab === t.id ? `2px solid ${C.crimson}` : "2px solid transparent", whiteSpace: "nowrap" }}>
             {t.label}
           </button>
         ))}

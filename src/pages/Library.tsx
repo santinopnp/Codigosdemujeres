@@ -217,9 +217,9 @@ function WebReader({
   const title = chapter?.title ?? "";
   const body = chapter?.body ?? "";
 
-  const bg = dark ? "#1a1208" : "#FBF7F1";
-  const fg = dark ? "#e8dcc8" : "#3D2B1F";
-  const accent = "#C2506A";
+  const bg = dark ? "#2B1A20" : "#FFF1F4";
+  const fg = dark ? "#F6E4E9" : "#4E0F22";
+  const accent = "#A12B52";
   const progress = total > 0 ? ((currentNum - 1) / (total - 1)) * 100 : 0;
 
   return (
@@ -244,21 +244,21 @@ function WebReader({
         }
         .reader-content p.question {
           font-style: italic;
-          color: ${dark ? "#c9967a" : "#8B4A3A"};
+          color: ${dark ? "#F6A9BE" : "#7A1C38"};
           margin-bottom: 0.8em;
         }
 
         /* ── Blockquotes ── */
         .reader-content blockquote {
-          border-left: 3px solid #C2506A;
+          border-left: 3px solid #A12B52;
           padding: 0.6em 1.2em;
           margin: 1.8em 0;
           font-style: italic;
           font-family: Georgia, serif;
           font-size: 1.05em;
           line-height: 1.7;
-          color: ${dark ? "#d4a0a8" : "#8B3A50"};
-          background: ${dark ? "rgba(194,80,106,0.08)" : "rgba(194,80,106,0.05)"};
+          color: ${dark ? "#F6C6D3" : "#A12B52"};
+          background: ${dark ? "rgba(161,43,82,0.08)" : "rgba(161,43,82,0.05)"};
           border-radius: 0 4px 4px 0;
         }
 
@@ -267,7 +267,7 @@ function WebReader({
           text-align: center;
           margin: 2em 0;
           letter-spacing: 0.6em;
-          color: #C2506A;
+          color: #A12B52;
           opacity: 0.5;
           font-size: 12px;
         }
@@ -284,9 +284,9 @@ function WebReader({
           font-family: Georgia, serif;
           font-style: italic;
           font-size: 1.1em;
-          color: ${dark ? "#d4a0a8" : "#C2506A"};
+          color: ${dark ? "#F6C6D3" : "#A12B52"};
           padding: 0.35em 0;
-          border-bottom: 1px solid ${dark ? "rgba(194,80,106,0.15)" : "rgba(194,80,106,0.12)"};
+          border-bottom: 1px solid ${dark ? "rgba(161,43,82,0.15)" : "rgba(161,43,82,0.12)"};
         }
         .reader-content ul.affirmations li:last-child { border-bottom: none; }
 
@@ -306,7 +306,7 @@ function WebReader({
           content: "✦";
           position: absolute;
           left: 0;
-          color: #C2506A;
+          color: #A12B52;
           font-size: 10px;
           top: 0.6em;
         }
@@ -317,7 +317,7 @@ function WebReader({
           font-size: 1em;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: ${dark ? "#d4a0a8" : "#C2506A"};
+          color: ${dark ? "#F6C6D3" : "#A12B52"};
           margin: 1.8em 0 0.6em;
           font-weight: 400;
         }
@@ -329,8 +329,8 @@ function WebReader({
         }
         .reader-content .dedicatoria blockquote {
           border-left: none;
-          border-top: 1px solid ${dark ? "rgba(194,80,106,0.3)" : "rgba(194,80,106,0.2)"};
-          border-bottom: 1px solid ${dark ? "rgba(194,80,106,0.3)" : "rgba(194,80,106,0.2)"};
+          border-top: 1px solid ${dark ? "rgba(161,43,82,0.3)" : "rgba(161,43,82,0.2)"};
+          border-bottom: 1px solid ${dark ? "rgba(161,43,82,0.3)" : "rgba(161,43,82,0.2)"};
           background: none;
           text-align: center;
           font-size: 1.05em;
@@ -348,8 +348,8 @@ function WebReader({
           border-radius: 50%;
           object-fit: cover;
           object-position: center top;
-          border: 3px solid ${dark ? "rgba(194,80,106,0.3)" : "rgba(194,80,106,0.2)"};
-          box-shadow: 0 8px 24px ${dark ? "rgba(0,0,0,0.4)" : "rgba(194,80,106,0.15)"};
+          border: 3px solid ${dark ? "rgba(161,43,82,0.3)" : "rgba(161,43,82,0.2)"};
+          box-shadow: 0 8px 24px ${dark ? "rgba(0,0,0,0.4)" : "rgba(161,43,82,0.15)"};
         }
 
         /* ── Author signature ── */
@@ -358,7 +358,7 @@ function WebReader({
           font-family: Georgia, serif;
           font-style: italic;
           font-size: 1.05em;
-          color: ${dark ? "#d4a0a8" : "#C2506A"};
+          color: ${dark ? "#F6C6D3" : "#A12B52"};
           margin-top: 2em;
           padding-right: 1em;
         }
@@ -367,7 +367,7 @@ function WebReader({
         .reader-content .final-message {
           margin-top: 2em;
           padding: 1.5em;
-          background: ${dark ? "rgba(194,80,106,0.1)" : "rgba(194,80,106,0.06)"};
+          background: ${dark ? "rgba(161,43,82,0.1)" : "rgba(161,43,82,0.06)"};
           border-radius: 8px;
           text-align: center;
         }
@@ -381,7 +381,7 @@ function WebReader({
       `}</style>
 
       {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderBottom: `1px solid ${dark ? "#3a2a1a" : "#F3EBE0"}`, background: bg, position: "sticky", top: 0, zIndex: 10 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 16px", borderBottom: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`, background: bg, position: "sticky", top: 0, zIndex: 10 }}>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} style={{ background: "none", border: "none", color: fg, cursor: "pointer", fontSize: 20, padding: 4 }} aria-label="Índice">☰</button>
         <span style={{ fontFamily: "Georgia, serif", fontSize: 14, letterSpacing: ".1em", color: accent, fontWeight: 700 }}>
           CÓDIGOS {total > 0 ? `· ${currentNum}/${total}` : ""}
@@ -397,7 +397,7 @@ function WebReader({
             {exportOpen && (
               <div style={{
                 position: "absolute", top: "110%", right: 0, zIndex: 50, minWidth: 260,
-                background: dark ? "#2a1a0a" : "#FBF7F1", border: `1px solid ${dark ? "#3a2a1a" : "#F3EBE0"}`,
+                background: dark ? "#3A2530" : "#FFF1F4", border: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`,
                 boxShadow: "0 8px 24px rgba(0,0,0,.12)", padding: 16, overflow: "hidden", borderRadius: 8,
               }}>
                 <div style={{ fontFamily: "Georgia, serif", fontSize: 14, color: accent, marginBottom: 14, fontWeight: 700 }}>
@@ -409,7 +409,7 @@ function WebReader({
                     {/* EPUB Download */}
                     <button onClick={handleDownloadEpub} style={{
                       display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px",
-                      background: dark ? "#1a1208" : "#fff", border: `1px solid ${dark ? "#3a2a1a" : "#E8DDD4"}`,
+                      background: dark ? "#2B1A20" : "#fff", border: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`,
                       color: fg, cursor: "pointer", fontSize: 13, fontFamily: "Nunito, sans-serif", textAlign: "left", borderRadius: 6,
                     }}>
                       <span style={{ fontSize: 20 }}>📖</span>
@@ -422,7 +422,7 @@ function WebReader({
                     {/* Send to Kindle */}
                     <button onClick={() => setKindleMode(true)} style={{
                       display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px",
-                      background: dark ? "#1a1208" : "#fff", border: `1px solid ${dark ? "#3a2a1a" : "#E8DDD4"}`,
+                      background: dark ? "#2B1A20" : "#fff", border: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`,
                       color: fg, cursor: "pointer", fontSize: 13, fontFamily: "Nunito, sans-serif", textAlign: "left", borderRadius: 6,
                     }}>
                       <span style={{ fontSize: 20 }}>📱</span>
@@ -435,7 +435,7 @@ function WebReader({
                     {/* Read here */}
                     <button onClick={() => setExportOpen(false)} style={{
                       display: "flex", alignItems: "center", gap: 10, width: "100%", padding: "10px 12px",
-                      background: dark ? "rgba(194,80,106,0.15)" : "rgba(194,80,106,0.08)",
+                      background: dark ? "rgba(161,43,82,0.15)" : "rgba(161,43,82,0.08)",
                       border: `1px solid ${accent}33`, color: accent,
                       cursor: "pointer", fontSize: 13, fontFamily: "Nunito, sans-serif", textAlign: "left", borderRadius: 6,
                     }}>
@@ -465,8 +465,8 @@ function WebReader({
                       value={kindleEmail}
                       onChange={(e) => setKindleEmail(e.target.value)}
                       style={{
-                        width: "100%", padding: "10px 12px", border: `1px solid ${dark ? "#3a2a1a" : "#E8DDD4"}`,
-                        background: dark ? "#1a1208" : "#fff", color: fg, fontSize: 13,
+                        width: "100%", padding: "10px 12px", border: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`,
+                        background: dark ? "#2B1A20" : "#fff", color: fg, fontSize: 13,
                         fontFamily: "Nunito, sans-serif", boxSizing: "border-box", marginBottom: 10,
                         outline: "none", borderRadius: 6,
                       }}
@@ -475,7 +475,7 @@ function WebReader({
                       onClick={handleSendToKindle}
                       disabled={kindleStatus === "sending" || kindleStatus === "sent"}
                       style={{
-                        width: "100%", padding: "10px", border: "none", background: accent, color: "#FBF7F1",
+                        width: "100%", padding: "10px", border: "none", background: accent, color: "#FFF1F4",
                         cursor: kindleStatus === "sending" ? "wait" : "pointer", fontSize: 13,
                         fontFamily: "Nunito, sans-serif", fontWeight: 600, borderRadius: 6,
                       }}
@@ -501,7 +501,7 @@ function WebReader({
       {/* Sidebar */}
       {sidebarOpen && (
         <div style={{ position: "fixed", inset: 0, zIndex: 100, display: "flex" }}>
-          <div style={{ width: 280, maxWidth: "85vw", background: bg, borderRight: `1px solid ${dark ? "#3a2a1a" : "#F3EBE0"}`, overflowY: "auto", padding: "16px 0", display: "flex", flexDirection: "column" }}>
+          <div style={{ width: 280, maxWidth: "85vw", background: bg, borderRight: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`, overflowY: "auto", padding: "16px 0", display: "flex", flexDirection: "column" }}>
             <div style={{ padding: "0 16px 12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <span style={{ fontFamily: "Georgia, serif", fontSize: 16, fontWeight: 700, color: accent }}>{lang === "it" ? "Capitoli" : lang === "en" ? "Chapters" : "Capítulos"}</span>
               <button onClick={() => { setSidebarOpen(false); setSidebarSearch(""); }} style={{ background: "none", border: "none", color: fg, cursor: "pointer", fontSize: 20 }}>✕</button>
@@ -514,8 +514,8 @@ function WebReader({
                 onChange={(e) => setSidebarSearch(e.target.value)}
                 style={{
                   width: "100%", padding: "8px 12px", fontSize: 13,
-                  border: `1px solid ${dark ? "#3a2a1a" : "#E8DDD4"}`,
-                  background: dark ? "#2a1a0a" : "#fff", color: fg,
+                  border: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`,
+                  background: dark ? "#3A2530" : "#fff", color: fg,
                   fontFamily: "Nunito, sans-serif", outline: "none", borderRadius: 6,
                 }}
               />
@@ -532,7 +532,7 @@ function WebReader({
                 onClick={() => { loadChapter(ch.chapter_number); setSidebarOpen(false); setSidebarSearch(""); }}
                 style={{
                   display: "block", width: "100%", textAlign: "left", padding: "10px 16px",
-                  background: ch.chapter_number === currentNum ? (dark ? "#2a1a0a" : "#F9EFF5") : "none",
+                  background: ch.chapter_number === currentNum ? (dark ? "#3A2530" : "#FBF6F7") : "none",
                   border: "none", borderLeft: ch.chapter_number === currentNum ? `3px solid ${accent}` : "3px solid transparent",
                   color: ch.chapter_number === currentNum ? accent : fg, cursor: "pointer", fontSize: 13, lineHeight: 1.5,
                 }}
@@ -550,12 +550,12 @@ function WebReader({
       <div ref={contentRef} style={{ flex: 1, overflowY: "auto", padding: "32px 20px", maxWidth: 680, margin: "0 auto", width: "100%" }} className="reader-content">
         {loading ? (
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 80, gap: 16 }}>
-            <div style={{ width: 36, height: 36, border: `2px solid ${dark ? "#5a3a2a" : "#F3EBE0"}`, borderTopColor: accent, borderRadius: "50%", animation: "spin .8s linear infinite" }} />
+            <div style={{ width: 36, height: 36, border: `2px solid ${dark ? "#5A3D48" : "#F1DCE2"}`, borderTopColor: accent, borderRadius: "50%", animation: "spin .8s linear infinite" }} />
             <div style={{ fontFamily: "Georgia, serif", fontSize: 12, letterSpacing: "0.2em", color: accent, opacity: 0.6 }}>CÓDIGOS</div>
             <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
           </div>
         ) : total === 0 ? (
-          <div style={{ textAlign: "center", paddingTop: 80, color: dark ? "#9a8070" : "#A89882" }}>
+          <div style={{ textAlign: "center", paddingTop: 80, color: dark ? "#B89AA3" : "#7A4A58" }}>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 40, marginBottom: 20, opacity: 0.3 }}>📖</div>
             <p style={{ fontFamily: "Georgia, serif", fontSize: 16, marginBottom: 8 }}>
               {L[lang].coming_soon}
@@ -571,7 +571,7 @@ function WebReader({
               textAlign: "center",
               marginBottom: 36,
               paddingBottom: 28,
-              borderBottom: `1px solid ${dark ? "rgba(194,80,106,0.2)" : "rgba(194,80,106,0.15)"}`,
+              borderBottom: `1px solid ${dark ? "rgba(161,43,82,0.2)" : "rgba(161,43,82,0.15)"}`,
             }}>
               {currentNum === 1 && (
                 <img
@@ -579,7 +579,7 @@ function WebReader({
                   alt="Códigos que toda mujer debería saber"
                   style={{
                     width: "60%", maxWidth: 240, height: "auto", margin: "0 auto 24px", display: "block",
-                    boxShadow: `6px 6px 28px rgba(194,80,106,${dark ? "0.4" : "0.25"}), -3px 2px 0 rgba(139,58,80,0.3)`,
+                    boxShadow: `6px 6px 28px rgba(161,43,82,${dark ? "0.4" : "0.25"}), -3px 2px 0 rgba(161,43,82,0.3)`,
                     borderRadius: "2px 6px 6px 2px",
                   }}
                 />
@@ -588,7 +588,7 @@ function WebReader({
                 fontSize: 10,
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
-                color: dark ? "#c9967a" : "#C2506A",
+                color: dark ? "#F6A9BE" : "#A12B52",
                 marginBottom: 10,
                 opacity: 0.7,
               }}>
@@ -597,7 +597,7 @@ function WebReader({
               <h2 style={{
                 fontFamily: "Georgia, serif",
                 fontSize: fontSize > 20 ? 26 : 22,
-                color: dark ? "#e8dcc8" : "#3D2B1F",
+                color: dark ? "#F6E4E9" : "#4E0F22",
                 lineHeight: 1.35,
                 margin: "0 0 14px",
                 fontWeight: 400,
@@ -639,24 +639,24 @@ function WebReader({
       </div>
 
       {/* Bottom navigation */}
-      <div style={{ padding: "12px 16px", borderTop: `1px solid ${dark ? "#3a2a1a" : "#F3EBE0"}`, background: bg }}>
+      <div style={{ padding: "12px 16px", borderTop: `1px solid ${dark ? "#4A3038" : "#F1DCE2"}`, background: bg }}>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", maxWidth: 680, margin: "0 auto" }}>
           <button
             onClick={() => currentNum > 1 && loadChapter(currentNum - 1)}
             disabled={currentNum <= 1}
-            style={{ background: "none", border: `1px solid ${currentNum <= 1 ? (dark ? "#3a2a1a" : "#F3EBE0") : accent}`, color: currentNum <= 1 ? (dark ? "#5a4a3a" : "#C9B99A") : accent, padding: "8px 16px", cursor: currentNum <= 1 ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}
+            style={{ background: "none", border: `1px solid ${currentNum <= 1 ? (dark ? "#4A3038" : "#F1DCE2") : accent}`, color: currentNum <= 1 ? (dark ? "#6E5560" : "#F6C6D3") : accent, padding: "8px 16px", cursor: currentNum <= 1 ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}
           >
             ← {lang === "en" ? "Prev" : "Anterior"}
           </button>
           <div style={{ flex: 1, margin: "0 16px" }}>
-            <div style={{ height: 3, background: dark ? "#3a2a1a" : "#F3EBE0", borderRadius: 2 }}>
+            <div style={{ height: 3, background: dark ? "#4A3038" : "#F1DCE2", borderRadius: 2 }}>
               <div style={{ height: "100%", width: `${progress}%`, background: accent, borderRadius: 2, transition: "width .3s" }} />
             </div>
           </div>
           <button
             onClick={() => currentNum < total && loadChapter(currentNum + 1)}
             disabled={currentNum >= total}
-            style={{ background: "none", border: `1px solid ${currentNum >= total ? (dark ? "#3a2a1a" : "#F3EBE0") : accent}`, color: currentNum >= total ? (dark ? "#5a4a3a" : "#C9B99A") : accent, padding: "8px 16px", cursor: currentNum >= total ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}
+            style={{ background: "none", border: `1px solid ${currentNum >= total ? (dark ? "#4A3038" : "#F1DCE2") : accent}`, color: currentNum >= total ? (dark ? "#6E5560" : "#F6C6D3") : accent, padding: "8px 16px", cursor: currentNum >= total ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}
           >
             {lang === "en" ? "Next" : "Siguiente"} →
           </button>
@@ -774,9 +774,9 @@ function AudioPlayer({
     }
   };
 
-  const accent = "#C2506A";
-  const fg = "#3D2B1F";
-  const bg = "#FBF7F1";
+  const accent = "#A12B52";
+  const fg = "#4E0F22";
+  const bg = "#FFF1F4";
 
   return (
     <div style={{ minHeight: "100vh", background: bg, color: fg, fontFamily: "Nunito, Arial, sans-serif", display: "flex", flexDirection: "column" }} onContextMenu={(e) => e.preventDefault()}>
@@ -790,7 +790,7 @@ function AudioPlayer({
       />
 
       {/* Header */}
-      <div style={{ padding: "16px 20px", borderBottom: `1px solid #F3EBE0`, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div style={{ padding: "16px 20px", borderBottom: `1px solid #F1DCE2`, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: "Georgia, serif", letterSpacing: ".1em", color: accent, fontWeight: 700, fontSize: 15 }}>CÓDIGOS · AUDIOLIBRO</span>
         <button onClick={() => { setShowChapters(!showChapters); setChapterSearch(""); }} style={{ background: "none", border: "none", color: fg, cursor: "pointer", fontSize: 13, opacity: 0.7 }}>
           {lang === "it" ? "Capitoli" : lang === "en" ? "Chapters" : "Capítulos"} {showChapters ? "▲" : "▼"}
@@ -800,9 +800,9 @@ function AudioPlayer({
       {/* Main player area */}
       <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", padding: "32px 20px 16px", maxWidth: 480, margin: "0 auto", width: "100%" }}>
         {chapters.length === 0 && (
-          <div style={{ textAlign: "center", paddingTop: 40, color: "#A89882" }}>
+          <div style={{ textAlign: "center", paddingTop: 40, color: "#7A4A58" }}>
             <div style={{ fontFamily: "Georgia, serif", fontSize: 40, marginBottom: 16, opacity: 0.3 }}>🎧</div>
-            <p style={{ fontFamily: "Georgia, serif", fontSize: 16, marginBottom: 8, color: "#3D2B1F" }}>
+            <p style={{ fontFamily: "Georgia, serif", fontSize: 16, marginBottom: 8, color: "#4E0F22" }}>
               {lang === "it" ? "Audio in arrivo" : lang === "en" ? "Audio coming soon" : "Audio próximamente"}
             </p>
             <p style={{ fontSize: 13 }}>
@@ -816,7 +816,7 @@ function AudioPlayer({
           alt="Códigos que toda mujer debería saber"
           style={{
             width: 180, height: "auto", marginBottom: 32,
-            boxShadow: "6px 6px 24px rgba(194,80,106,.3), -3px 2px 0 rgba(139,58,80,0.4)",
+            boxShadow: "6px 6px 24px rgba(161,43,82,.3), -3px 2px 0 rgba(161,43,82,0.4)",
             borderRadius: "2px 6px 6px 2px",
             objectFit: "cover",
           }}
@@ -824,7 +824,7 @@ function AudioPlayer({
 
         {/* Chapter info */}
         <div style={{ textAlign: "center", marginBottom: 24 }}>
-          <div style={{ fontSize: 12, color: "#A89882", letterSpacing: ".08em", marginBottom: 4 }}>
+          <div style={{ fontSize: 12, color: "#7A4A58", letterSpacing: ".08em", marginBottom: 4 }}>
             {lang === "en" ? "Chapter" : "Capítulo"} {currentNum} / {chapters.length}
           </div>
           <div style={{ fontFamily: "Georgia, serif", fontSize: 18, color: fg, lineHeight: 1.4 }}>{title}</div>
@@ -840,7 +840,7 @@ function AudioPlayer({
             onChange={seek}
             style={{ width: "100%", accentColor: accent, cursor: "pointer" }}
           />
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#A89882" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", fontSize: 12, color: "#7A4A58" }}>
             <span>{fmtTime(currentTime)}</span>
             <span>{fmtTime(duration)}</span>
           </div>
@@ -851,7 +851,7 @@ function AudioPlayer({
           <button onClick={() => skip(-15)} style={{ background: "none", border: "none", color: fg, cursor: "pointer", fontSize: 22, opacity: 0.7 }} title="-15s">⏪</button>
           <button
             onClick={togglePlay}
-            style={{ width: 64, height: 64, borderRadius: "50%", background: accent, border: "none", color: "#FBF7F1", fontSize: 26, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 4px 20px ${accent}66` }}
+            style={{ width: 64, height: 64, borderRadius: "50%", background: accent, border: "none", color: "#FFF1F4", fontSize: 26, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: `0 4px 20px ${accent}66` }}
           >
             {playing ? "⏸" : "▶"}
           </button>
@@ -862,8 +862,8 @@ function AudioPlayer({
         <div style={{ display: "flex", gap: 8, marginBottom: 16 }}>
           {[0.5, 1, 1.5, 2].map((s) => (
             <button key={s} onClick={() => setSpeed(s)} style={{
-              padding: "4px 12px", border: `1px solid ${speed === s ? accent : "#E8DDD4"}`,
-              background: speed === s ? accent : "transparent", color: speed === s ? "#FBF7F1" : "#7A6652",
+              padding: "4px 12px", border: `1px solid ${speed === s ? accent : "#F1DCE2"}`,
+              background: speed === s ? accent : "transparent", color: speed === s ? "#FFF1F4" : "#7A4A58",
               cursor: "pointer", fontSize: 13, fontFamily: "Nunito, sans-serif",
             }}>
               {s}x
@@ -874,7 +874,7 @@ function AudioPlayer({
         {/* Sleep timer */}
         <div style={{ position: "relative" }}>
           <button onClick={() => setSleepPickerOpen(!sleepPickerOpen)} style={{
-            background: "none", border: "none", color: sleepMinutes > 0 ? accent : "#A89882",
+            background: "none", border: "none", color: sleepMinutes > 0 ? accent : "#7A4A58",
             cursor: "pointer", fontSize: 13, display: "flex", alignItems: "center", gap: 6,
           }}>
             💤 {sleepMinutes > 0 ? `${lang === "en" ? "Sleep in" : "Apagar en"} ${sleepMinutes}min` : lang === "en" ? "Sleep timer" : "Temporizador"}
@@ -883,8 +883,8 @@ function AudioPlayer({
             <div style={{ position: "absolute", bottom: "110%", left: "50%", transform: "translateX(-50%)", background: "#fff", boxShadow: "0 4px 20px rgba(0,0,0,.15)", padding: 12, display: "flex", gap: 8, zIndex: 20 }}>
               {[0, 5, 10, 15, 30, 60].map((m) => (
                 <button key={m} onClick={() => { activateSleep(m); setSleepPickerOpen(false); }} style={{
-                  padding: "6px 10px", border: `1px solid ${sleepMinutes === m ? accent : "#E8DDD4"}`,
-                  background: sleepMinutes === m ? accent : "#FBF7F1", color: sleepMinutes === m ? "#FBF7F1" : fg,
+                  padding: "6px 10px", border: `1px solid ${sleepMinutes === m ? accent : "#F1DCE2"}`,
+                  background: sleepMinutes === m ? accent : "#FFF1F4", color: sleepMinutes === m ? "#FFF1F4" : fg,
                   cursor: "pointer", fontSize: 12,
                 }}>
                   {m === 0 ? (lang === "en" ? "Off" : "Off") : `${m}m`}
@@ -896,10 +896,10 @@ function AudioPlayer({
 
         {/* Prev / Next chapter buttons */}
         <div style={{ display: "flex", gap: 16, marginTop: 20 }}>
-          <button onClick={() => currentNum > 1 && setCurrentNum(n => n - 1)} disabled={currentNum <= 1} style={{ padding: "8px 16px", border: `1px solid ${currentNum <= 1 ? "#E8DDD4" : accent}`, background: "none", color: currentNum <= 1 ? "#C9B99A" : accent, cursor: currentNum <= 1 ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}>
+          <button onClick={() => currentNum > 1 && setCurrentNum(n => n - 1)} disabled={currentNum <= 1} style={{ padding: "8px 16px", border: `1px solid ${currentNum <= 1 ? "#F1DCE2" : accent}`, background: "none", color: currentNum <= 1 ? "#F6C6D3" : accent, cursor: currentNum <= 1 ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}>
             ← {lang === "en" ? "Prev" : "Anterior"}
           </button>
-          <button onClick={() => currentNum < chapters.length && setCurrentNum(n => n + 1)} disabled={currentNum >= chapters.length} style={{ padding: "8px 16px", border: `1px solid ${currentNum >= chapters.length ? "#E8DDD4" : accent}`, background: "none", color: currentNum >= chapters.length ? "#C9B99A" : accent, cursor: currentNum >= chapters.length ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}>
+          <button onClick={() => currentNum < chapters.length && setCurrentNum(n => n + 1)} disabled={currentNum >= chapters.length} style={{ padding: "8px 16px", border: `1px solid ${currentNum >= chapters.length ? "#F1DCE2" : accent}`, background: "none", color: currentNum >= chapters.length ? "#F6C6D3" : accent, cursor: currentNum >= chapters.length ? "default" : "pointer", fontSize: 13, fontFamily: "Georgia, serif" }}>
             {lang === "en" ? "Next" : "Siguiente"} →
           </button>
         </div>
@@ -907,7 +907,7 @@ function AudioPlayer({
 
       {/* Chapter list */}
       {showChapters && (
-        <div style={{ borderTop: `1px solid #F3EBE0` }}>
+        <div style={{ borderTop: `1px solid #F1DCE2` }}>
           <div style={{ padding: "12px 20px 8px" }}>
             <input
               type="search"
@@ -916,7 +916,7 @@ function AudioPlayer({
               onChange={(e) => setChapterSearch(e.target.value)}
               style={{
                 width: "100%", padding: "8px 14px", fontSize: 13,
-                border: "1px solid #E8DDD4", background: "#fff", color: fg,
+                border: "1px solid #F1DCE2", background: "#fff", color: fg,
                 fontFamily: "Nunito, sans-serif", outline: "none", borderRadius: 6,
               }}
             />
@@ -935,8 +935,8 @@ function AudioPlayer({
                     key={ch.chapter_number}
                     style={{
                       display: "flex", alignItems: "center", justifyContent: "space-between",
-                      width: "100%", padding: "12px 20px", borderBottom: `1px solid #F3EBE0`,
-                      background: isPlaying ? "#F9EFF5" : bg,
+                      width: "100%", padding: "12px 20px", borderBottom: `1px solid #F1DCE2`,
+                      background: isPlaying ? "#FBF6F7" : bg,
                       borderLeft: isPlaying ? `3px solid ${accent}` : "3px solid transparent",
                     }}
                   >
@@ -947,14 +947,14 @@ function AudioPlayer({
                         background: "none", border: "none", cursor: "pointer", textAlign: "left", padding: 0,
                       }}
                     >
-                      <span style={{ fontSize: 11, color: "#A89882", width: 20 }}>{isPlaying ? "▶" : ch.chapter_number}</span>
+                      <span style={{ fontSize: 11, color: "#7A4A58", width: 20 }}>{isPlaying ? "▶" : ch.chapter_number}</span>
                       <span style={{ fontSize: 13, color: isPlaying ? accent : fg }}>
                         {lang === "it" ? ((ch as any).title_it || ch.title_en || ch.title_es) : lang === "en" && ch.title_en ? ch.title_en : ch.title_es}
                       </span>
                     </button>
                     <div style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
                       {ch.duration_seconds && (
-                        <span style={{ fontSize: 12, color: "#A89882" }}>{fmtTime(ch.duration_seconds)}</span>
+                        <span style={{ fontSize: 12, color: "#7A4A58" }}>{fmtTime(ch.duration_seconds)}</span>
                       )}
                     </div>
                   </div>
@@ -979,11 +979,11 @@ function LibraryError({ code }: { code: string }) {
   };
   const msg = messages[code] ?? messages.default;
   return (
-    <div style={{ minHeight: "100vh", background: "#FBF7F1", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: "Nunito, Arial, sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "#FFF1F4", display: "flex", alignItems: "center", justifyContent: "center", padding: 24, fontFamily: "Nunito, Arial, sans-serif" }}>
       <div style={{ textAlign: "center", maxWidth: 400 }}>
-        <h1 style={{ fontFamily: "Georgia, serif", color: "#C2506A", fontSize: 28, marginBottom: 16 }}>CÓDIGOS</h1>
-        <p style={{ color: "#7A6652", lineHeight: 1.7 }}>{lang === "en" ? msg.en : msg.es}</p>
-        <a href={`mailto:${import.meta.env.VITE_SUPPORT_EMAIL ?? "hello@codigosdemujeres.com"}`} style={{ display: "inline-block", marginTop: 24, color: "#C2506A", fontSize: 13 }}>
+        <h1 style={{ fontFamily: "Georgia, serif", color: "#A12B52", fontSize: 28, marginBottom: 16 }}>CÓDIGOS</h1>
+        <p style={{ color: "#7A4A58", lineHeight: 1.7 }}>{lang === "en" ? msg.en : msg.es}</p>
+        <a href={`mailto:${import.meta.env.VITE_SUPPORT_EMAIL ?? "hello@codigosdemujeres.com"}`} style={{ display: "inline-block", marginTop: 24, color: "#A12B52", fontSize: 13 }}>
           {lang === "en" ? "Contact support" : "Contactar soporte"}
         </a>
       </div>
@@ -993,7 +993,7 @@ function LibraryError({ code }: { code: string }) {
 
 function LibraryLoading() {
   return (
-    <div style={{ minHeight: "100vh", background: "#FBF7F1", display: "flex", alignItems: "center", justifyContent: "center" }}>
+    <div style={{ minHeight: "100vh", background: "#FFF1F4", display: "flex", alignItems: "center", justifyContent: "center" }}>
       <div style={{ textAlign: "center" }}>
         {/* Book cover mini */}
         <img
@@ -1001,13 +1001,13 @@ function LibraryLoading() {
           alt="Códigos"
           style={{
             width: 80, height: "auto", margin: "0 auto 24px", display: "block",
-            boxShadow: "4px 4px 20px rgba(194,80,106,0.25), -2px 2px 0 rgba(160,64,96,0.3)",
+            boxShadow: "4px 4px 20px rgba(161,43,82,0.25), -2px 2px 0 rgba(161,43,82,0.3)",
             borderRadius: "2px 4px 4px 2px",
           }}
         />
-        <div style={{ width: 28, height: 28, border: "2px solid #F3EBE0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin .8s linear infinite", margin: "0 auto 12px" }} />
+        <div style={{ width: 28, height: 28, border: "2px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin .8s linear infinite", margin: "0 auto 12px" }} />
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-        <p style={{ color: "#A89882", fontFamily: "Georgia, serif", fontSize: 11, letterSpacing: ".2em" }}>CÓDIGOS DE MUJERES</p>
+        <p style={{ color: "#7A4A58", fontFamily: "Georgia, serif", fontSize: 11, letterSpacing: ".2em" }}>CÓDIGOS DE MUJERES</p>
       </div>
     </div>
   );
@@ -1016,30 +1016,30 @@ function LibraryLoading() {
 // ─── PWA Install Banner ──────────────────────────────────────────────────────
 
 function InstallBanner({ lang, onInstall, onDismiss }: { lang: Lang; onInstall: () => void; onDismiss: () => void }) {
-  const accent = "#C2506A";
+  const accent = "#A12B52";
   return (
     <div style={{
-      background: "#FBF7F1", border: `1px solid #F3EBE0`, padding: "14px 16px",
+      background: "#FFF1F4", border: `1px solid #F1DCE2`, padding: "14px 16px",
       display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12,
       fontFamily: "Nunito, Arial, sans-serif", boxShadow: "0 2px 12px rgba(0,0,0,.06)",
     }}>
       <div style={{ flex: 1, minWidth: 0 }}>
-        <div style={{ fontFamily: "Georgia, serif", fontSize: 14, color: "#3D2B1F", fontWeight: 700, marginBottom: 2 }}>
+        <div style={{ fontFamily: "Georgia, serif", fontSize: 14, color: "#4E0F22", fontWeight: 700, marginBottom: 2 }}>
           {lang === "en" ? "Install CODIGOS on your device" : "Instala CODIGOS en tu dispositivo"}
         </div>
-        <div style={{ fontSize: 12, color: "#A89882", lineHeight: 1.4 }}>
+        <div style={{ fontSize: 12, color: "#7A4A58", lineHeight: 1.4 }}>
           {lang === "en" ? "Read offline from your home screen" : "Lee sin conexion desde tu pantalla"}
         </div>
       </div>
       <button onClick={onInstall} style={{
-        padding: "8px 16px", background: accent, border: "none", color: "#FBF7F1",
+        padding: "8px 16px", background: accent, border: "none", color: "#FFF1F4",
         fontSize: 13, fontFamily: "Nunito, sans-serif", fontWeight: 600, cursor: "pointer",
         whiteSpace: "nowrap", flexShrink: 0,
       }}>
         {lang === "en" ? "Install" : "Instalar"}
       </button>
       <button onClick={onDismiss} style={{
-        background: "none", border: "none", color: "#A89882", cursor: "pointer",
+        background: "none", border: "none", color: "#7A4A58", cursor: "pointer",
         fontSize: 18, padding: 4, flexShrink: 0, lineHeight: 1,
       }} aria-label={lang === "en" ? "Close" : "Cerrar"}>
         ✕
@@ -1056,7 +1056,7 @@ function isPWA() {
 }
 
 function AppNav({ lang }: { lang: Lang }) {
-  const accent = "#C2506A";
+  const accent = "#A12B52";
   const items = [
     { icon: "📖", label: lang === "en" ? "Library" : "Biblioteca", action: () => {} },
     { icon: "✍️", label: "Blog",  action: () => { window.location.href = `/blog?lang=${lang}`; } },
@@ -1066,7 +1066,7 @@ function AppNav({ lang }: { lang: Lang }) {
   return (
     <nav style={{
       position: "fixed", bottom: 0, left: 0, right: 0, zIndex: 50,
-      background: "#FBF7F1", borderTop: "1px solid #F3EBE0",
+      background: "#FFF1F4", borderTop: "1px solid #F1DCE2",
       display: "flex", justifyContent: "space-around",
       padding: "8px 0 max(8px, env(safe-area-inset-bottom))",
     }}>
@@ -1074,7 +1074,7 @@ function AppNav({ lang }: { lang: Lang }) {
         <button key={i} onClick={item.action} style={{
           background: "none", border: "none", cursor: "pointer",
           display: "flex", flexDirection: "column", alignItems: "center", gap: 2,
-          padding: "4px 12px", color: i === 0 ? accent : "#7A6652",
+          padding: "4px 12px", color: i === 0 ? accent : "#7A4A58",
           fontFamily: "Nunito, sans-serif", fontSize: 10,
         }}>
           <span style={{ fontSize: 18 }}>{item.icon}</span>
@@ -1168,7 +1168,7 @@ export default function Library() {
   const ebookChapters = order.chapters.filter((c) => c.format === "ebook");
   const audioChapters = order.chapters.filter((c) => c.format === "audio");
 
-  const accent = "#C2506A";
+  const accent = "#A12B52";
 
   const pwaBanner = showInstallBanner ? <InstallBanner lang={lang} onInstall={handleInstall} onDismiss={dismissInstallBanner} /> : null;
 
@@ -1200,14 +1200,14 @@ export default function Library() {
 
   // Bundle: tabs
   return (
-    <div style={{ minHeight: "100vh", background: "#FBF7F1", fontFamily: "Nunito, Arial, sans-serif", paddingBottom: bottomPad }}>
+    <div style={{ minHeight: "100vh", background: "#FFF1F4", fontFamily: "Nunito, Arial, sans-serif", paddingBottom: bottomPad }}>
       {pwaBanner}
       {/* Tab switcher */}
-      <div style={{ display: "flex", borderBottom: `2px solid #F3EBE0`, background: "#FBF7F1", position: "sticky", top: 0, zIndex: 20 }}>
+      <div style={{ display: "flex", borderBottom: `2px solid #F1DCE2`, background: "#FFF1F4", position: "sticky", top: 0, zIndex: 20 }}>
         <button onClick={() => setTab("ebook")} style={{
           flex: 1, padding: "14px", border: "none", background: "none", cursor: "pointer",
           fontFamily: "Georgia, serif", fontSize: 14, letterSpacing: ".06em",
-          color: tab === "ebook" ? accent : "#A89882",
+          color: tab === "ebook" ? accent : "#7A4A58",
           borderBottom: tab === "ebook" ? `2px solid ${accent}` : "2px solid transparent",
           marginBottom: -2,
         }}>
@@ -1216,7 +1216,7 @@ export default function Library() {
         <button onClick={() => setTab("audio")} style={{
           flex: 1, padding: "14px", border: "none", background: "none", cursor: "pointer",
           fontFamily: "Georgia, serif", fontSize: 14, letterSpacing: ".06em",
-          color: tab === "audio" ? accent : "#A89882",
+          color: tab === "audio" ? accent : "#7A4A58",
           borderBottom: tab === "audio" ? `2px solid ${accent}` : "2px solid transparent",
           marginBottom: -2,
         }}>

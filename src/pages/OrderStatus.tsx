@@ -136,8 +136,8 @@ export default function OrderStatus() {
   const accentColor =
     isPaid              ? "#5A9E6F" :
     status === "failed" ? "#C44D4D" :
-    status === "unknown"? "#A89882" :
-    "#C2506A";
+    status === "unknown"? "#7A4A58" :
+    "#A12B52";
 
   const icon = isPaid ? (
     <svg className="w-9 h-9" style={{ color: "#5A9E6F" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -148,25 +148,25 @@ export default function OrderStatus() {
       <path strokeLinecap="square" strokeLinejoin="miter" d="M6 18L18 6M6 6l12 12" />
     </svg>
   ) : status === "unknown" ? (
-    <svg className="w-9 h-9" style={{ color: "#A89882" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg className="w-9 h-9" style={{ color: "#7A4A58" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="square" strokeLinejoin="miter" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01" />
     </svg>
   ) : (
     // Pending spinner
-    <div style={{ width: 36, height: 36, border: "3px solid #D9C9B0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+    <div style={{ width: 36, height: 36, border: "3px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
   );
 
   const downloadToken = undefined; // token comes from email link; orderId page just confirms status
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-5" style={{ backgroundColor: "#FBF7F1" }}>
-      <span className="font-editorial text-xl mb-12" style={{ color: "#C2506A", letterSpacing: "0.12em" }}>
+    <div className="min-h-screen flex flex-col items-center justify-center px-5" style={{ backgroundColor: "#FFF1F4" }}>
+      <span className="font-editorial text-xl mb-12" style={{ color: "#A12B52", letterSpacing: "0.12em" }}>
         Códigos
       </span>
 
       <div
         className="flex items-center justify-center mb-6"
-        style={{ width: 72, height: 72, backgroundColor: "#F3EBE0", border: `2px solid ${accentColor}` }}
+        style={{ width: 72, height: 72, backgroundColor: "#F1DCE2", border: `2px solid ${accentColor}` }}
       >
         {icon}
       </div>
@@ -175,25 +175,25 @@ export default function OrderStatus() {
         {t[`title_${status}` as keyof typeof t]}
       </h1>
 
-      <p className="text-sm mb-2 text-center" style={{ color: "#7A6652", maxWidth: 340, lineHeight: 1.7 }}>
+      <p className="text-sm mb-2 text-center" style={{ color: "#7A4A58", maxWidth: 340, lineHeight: 1.7 }}>
         {t[`body_${status}` as keyof typeof t]}
       </p>
 
       {lastCheck && (
-        <p className="text-xs mb-8" style={{ color: "#D9C9B0" }}>
+        <p className="text-xs mb-8" style={{ color: "#F1DCE2" }}>
           {t.last_check}: {fmtTime(lastCheck, lang)}
-          {checking && <span style={{ color: "#C2506A" }}> · {t.checking}</span>}
+          {checking && <span style={{ color: "#A12B52" }}> · {t.checking}</span>}
         </p>
       )}
 
       {!lastCheck && (
-        <p className="text-xs mb-8" style={{ color: "#A89882" }}>{t.checking}</p>
+        <p className="text-xs mb-8" style={{ color: "#7A4A58" }}>{t.checking}</p>
       )}
 
       {/* Pending: animated progress bar */}
       {isPending && (
-        <div className="mb-8" style={{ width: "100%", maxWidth: 320, height: 3, backgroundColor: "#F3EBE0", overflow: "hidden" }}>
-          <div style={{ height: "100%", backgroundColor: "#C2506A", animation: "progress 2s ease-in-out infinite" }} />
+        <div className="mb-8" style={{ width: "100%", maxWidth: 320, height: 3, backgroundColor: "#F1DCE2", overflow: "hidden" }}>
+          <div style={{ height: "100%", backgroundColor: "#A12B52", animation: "progress 2s ease-in-out infinite" }} />
         </div>
       )}
 
@@ -204,7 +204,7 @@ export default function OrderStatus() {
           </button>
         )}
         {isPaid && !libraryToken && (
-          <p className="text-xs text-center mb-1" style={{ color: "#A89882" }}>
+          <p className="text-xs text-center mb-1" style={{ color: "#7A4A58" }}>
             {lang === "es"
               ? "El enlace de acceso fue enviado a tu correo."
               : lang === "it"
@@ -212,7 +212,7 @@ export default function OrderStatus() {
                 : "The access link was sent to your email."}
           </p>
         )}
-        <button className="btn-primary" style={isPaid && libraryToken ? { background: "transparent", border: "2px solid #D9C9B0", color: "#A89882" } : {}} onClick={() => navigate("/")}>
+        <button className="btn-primary" style={isPaid && libraryToken ? { background: "transparent", border: "2px solid #F1DCE2", color: "#7A4A58" } : {}} onClick={() => navigate("/")}>
           {t.home}
         </button>
       </div>

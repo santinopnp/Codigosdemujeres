@@ -21,8 +21,8 @@ const Products      = lazy(() => import("@/pages/Products"));
 
 function PageLoader() {
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "#FFF7F9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-      <div style={{ width: 32, height: 32, border: "3px solid #F7C6D0", borderTopColor: "#E75480", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+    <div style={{ minHeight: "100vh", backgroundColor: "#FFF1F4", display: "flex", alignItems: "center", justifyContent: "center" }}>
+      <div style={{ width: 32, height: 32, border: "3px solid #F6C6D3", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
     </div>
   );
