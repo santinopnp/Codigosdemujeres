@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#E8DDD4",
-  crimson: "#C2506A", dark: "#3D2B1F", muted: "#7A6652", light: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", dark: "#4E0F22", muted: "#7A4A58", light: "#7A4A58",
 };
 
 function useLang() {

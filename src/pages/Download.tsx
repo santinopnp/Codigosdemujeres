@@ -120,7 +120,7 @@ export default function Download() {
 
   const iconMap: Record<string, JSX.Element> = {
     redirecting: (
-      <svg className="w-9 h-9" style={{ color: "#C2506A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <svg className="w-9 h-9" style={{ color: "#A12B52" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="square" strokeLinejoin="miter" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
       </svg>
     ),
@@ -130,12 +130,12 @@ export default function Download() {
       </svg>
     ),
     not_paid: (
-      <svg className="w-9 h-9" style={{ color: "#C2506A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <svg className="w-9 h-9" style={{ color: "#A12B52" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="square" strokeLinejoin="miter" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
     expired: (
-      <svg className="w-9 h-9" style={{ color: "#A89882" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <svg className="w-9 h-9" style={{ color: "#7A4A58" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="square" strokeLinejoin="miter" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
@@ -147,34 +147,34 @@ export default function Download() {
   };
 
   const accentColor = (state === "not_found" || state === "error") ? "#C44D4D"
-    : state === "expired" ? "#A89882"
-    : "#C2506A";
+    : state === "expired" ? "#7A4A58"
+    : "#A12B52";
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-5" style={{ backgroundColor: "#FBF7F1" }}>
-      <span className="font-editorial text-xl mb-12" style={{ color: "#C2506A", letterSpacing: "0.12em" }}>Códigos</span>
+    <div className="min-h-screen flex flex-col items-center justify-center px-5" style={{ backgroundColor: "#FFF1F4" }}>
+      <span className="font-editorial text-xl mb-12" style={{ color: "#A12B52", letterSpacing: "0.12em" }}>Códigos</span>
 
       <div
         className="flex items-center justify-center mb-6"
-        style={{ width: 72, height: 72, backgroundColor: "#F3EBE0", border: `2px solid ${accentColor}` }}
+        style={{ width: 72, height: 72, backgroundColor: "#F1DCE2", border: `2px solid ${accentColor}` }}
       >
         {(state === "loading") ? (
-          <div style={{ width: 28, height: 28, border: "3px solid #D9C9B0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+          <div style={{ width: 28, height: 28, border: "3px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
         ) : iconMap[state]}
       </div>
 
       {state === "loading" && (
-        <p className="text-base" style={{ color: "#7A6652" }}>{t.loading}</p>
+        <p className="text-base" style={{ color: "#7A4A58" }}>{t.loading}</p>
       )}
 
       {state === "redirecting" && (
-        <p className="text-base" style={{ color: "#7A6652" }}>{t.redirecting}</p>
+        <p className="text-base" style={{ color: "#7A4A58" }}>{t.redirecting}</p>
       )}
 
       {isError && (
         <div className="text-center" style={{ maxWidth: 340 }}>
           <h1 className="mb-3" style={{ fontSize: "1.5rem", color: accentColor }}>{t[state]}</h1>
-          <p className="text-sm mb-8" style={{ color: "#7A6652", lineHeight: 1.7 }}>{t[`${state}_d` as keyof typeof t]}</p>
+          <p className="text-sm mb-8" style={{ color: "#7A4A58", lineHeight: 1.7 }}>{t[`${state}_d` as keyof typeof t]}</p>
 
           <div className="flex flex-col gap-3">
             {state === "not_paid" && (

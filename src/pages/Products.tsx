@@ -467,8 +467,8 @@ function fmt(n: number) { return `$${n.toFixed(2)}`; }
 
 // ─── Styles ───────────────────────────────────────────────────────────────────
 const S = {
-  eyebrow: { fontFamily: "'Nunito', sans-serif", fontSize: 11, fontWeight: 700 as const, letterSpacing: "0.15em", textTransform: "uppercase" as const },
-  heading: { fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700 as const, letterSpacing: "0.01em" },
+  eyebrow: { fontFamily: "'Nunito', sans-serif", fontSize: 12, fontWeight: 800 as const, letterSpacing: "0.16em", textTransform: "uppercase" as const },
+  heading: { fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700 as const, letterSpacing: "0", fontVariationSettings: "'opsz' 144" },
   body:    { fontFamily: "'Nunito', sans-serif", lineHeight: 1.7 },
 };
 
@@ -477,7 +477,7 @@ function PriceBadge({ price, original, label }: { price: number; original: numbe
   const pct = discountPct(price, original);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-      <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Playfair Display', serif" }}>{fmt(price)}</span>
+      <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Fraunces', Georgia, serif" }}>{fmt(price)}</span>
       <span style={{ fontSize: 15, color: C.muted, textDecoration: "line-through" }}>{fmt(original)}</span>
       <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: C.pureWhite, backgroundColor: C.crimson, borderRadius: 4, padding: "2px 8px" }}>
         -{pct}% {label}
@@ -525,7 +525,7 @@ export default function Products() {
           display: inline-flex; align-items: center; }
         .nav-link:hover { color: #fff; background: rgba(255,255,255,0.08); }
         .prod-card { background: ${C.pureWhite}; border: 1.5px solid ${C.pink}; border-radius: 12px; padding: 24px; display: flex; flex-direction: column; gap: 16px; transition: border-color 0.2s, box-shadow 0.2s; position: relative; animation: fadeUp 0.4s ease both; }
-        .prod-card:hover { border-color: ${C.crimson}; box-shadow: 0 4px 24px rgba(231,84,128,0.1); }
+        .prod-card:hover { border-color: ${C.crimson}; box-shadow: 0 4px 24px rgba(161,43,82,0.1); }
         .prod-card.featured { border-color: ${C.crimson}; border-width: 2px; }
         .products-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
         @media (min-width: 600px) { .products-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -534,18 +534,17 @@ export default function Products() {
         .section-pad { padding: 64px 24px; }
         @media (max-width: 600px) { .section-pad { padding: 48px 20px; } }
         .badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 4px; }
-        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #E75480; color: #fff; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.9375rem; letter-spacing: 0.04em; border: none; border-radius: 8px; padding: 14px 20px; cursor: pointer; transition: background-color 0.15s; text-decoration: none; width: 100%; }
-        .btn-primary:hover { background-color: #D44370; }
-        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: #E75480; font-family: 'Nunito', sans-serif; font-weight: 700; font-size: 0.875rem; letter-spacing: 0.04em; border: 2px solid #E75480; border-radius: 8px; padding: 12px 20px; cursor: pointer; transition: background-color 0.15s, color 0.15s; text-decoration: none; width: 100%; }
-        .btn-outline:hover { background-color: #E75480; color: #fff; }
+        .btn-primary { display: inline-flex; align-items: center; justify-content: center; background-color: #7A1C38; color: #FFF1F4; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.9375rem; letter-spacing: 0.02em; border: none; border-radius: 12px; padding: 14px 20px; cursor: pointer; box-shadow: 4px 4px 0 #E8557F; transition: transform 0.12s, box-shadow 0.12s; text-decoration: none; width: 100%; }
+        .btn-primary:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 #E8557F; }
+        .btn-outline { display: inline-flex; align-items: center; justify-content: center; background-color: transparent; color: #7A1C38; font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 0.875rem; letter-spacing: 0.04em; border: 2px solid #7A1C38; border-radius: 12px; padding: 12px 20px; cursor: pointer; transition: background-color 0.15s, color 0.15s; text-decoration: none; width: 100%; }
+        .btn-outline:hover { background-color: #FFFFFF; }
       `}</style>
 
       {/* NAV */}
       <nav style={{ position: "sticky", top: 0, zIndex: 50, backgroundColor: C.burgundy }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 20px", height: 52 }}>
-          <a href={`/?lang=${lang}`} style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: 8, flexShrink: 0 }}>
-            <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.pureWhite, letterSpacing: "0.12em" }}>{t.nav_brand}</span>
-            <span style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", letterSpacing: "0.08em" }}>{t.nav_sub}</span>
+          <a href={`/?lang=${lang}`} aria-label={t.nav_brand} style={{ textDecoration: "none", display: "flex", alignItems: "center", flexShrink: 0 }}>
+            <img src="/brand/codigos-horizontal-vino.svg" alt="Códigos — Empoderamiento Femenino" style={{ height: 34, width: "auto", display: "block" }} />
           </a>
           <div style={{ display: "flex", alignItems: "center", gap: 4 }}>
             <a href={`/?lang=${lang}`} className="nav-link">{t.back_home}</a>
@@ -568,7 +567,7 @@ export default function Products() {
       </div>
 
       {/* HERO */}
-      <section className="section-pad" style={{ textAlign: "center", background: `linear-gradient(180deg, ${C.bg} 0%, ${C.pink} 100%)` }}>
+      <section className="section-pad cd-trama" style={{ textAlign: "center" }}>
         <p style={{ ...S.eyebrow, color: C.crimson, marginBottom: 16 }}>{t.hero_eyebrow}</p>
         <h1 style={{ ...S.heading, fontSize: "clamp(1.8rem, 5vw, 2.8rem)", lineHeight: 1.15, color: C.burgundy, marginBottom: 16, whiteSpace: "pre-line" }}>{t.hero_title}</h1>
         <p style={{ ...S.body, fontSize: 15, color: C.secondary, maxWidth: 520, margin: "0 auto" }}>{t.hero_sub}</p>
@@ -809,7 +808,7 @@ export default function Products() {
                 <p style={{ ...S.body, fontSize: 13, color: C.secondary }}>{t.sub_club_desc}</p>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-                <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Playfair Display', serif" }}>{fmt(PRODUCTS.subscriptions.club.price)}</span>
+                <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Fraunces', Georgia, serif" }}>{fmt(PRODUCTS.subscriptions.club.price)}</span>
                 <span style={{ fontSize: 14, color: C.muted }}>{t.sub_per_month}</span>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: C.pureWhite, backgroundColor: C.crimson, borderRadius: 4, padding: "2px 8px", marginLeft: 6 }}>
                   -{discountPct(PRODUCTS.subscriptions.club.price, PRODUCTS.subscriptions.club.original)}%
@@ -838,7 +837,7 @@ export default function Products() {
                 <p style={{ ...S.body, fontSize: 13, color: C.secondary }}>{t.sub_mentoring_desc}</p>
               </div>
               <div style={{ display: "flex", alignItems: "baseline", gap: 4 }}>
-                <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Playfair Display', serif" }}>{fmt(PRODUCTS.subscriptions.mentoring.price)}</span>
+                <span style={{ fontSize: 28, fontWeight: 800, color: C.burgundy, fontFamily: "'Fraunces', Georgia, serif" }}>{fmt(PRODUCTS.subscriptions.mentoring.price)}</span>
                 <span style={{ fontSize: 14, color: C.muted }}>{t.sub_per_month}</span>
                 <span style={{ fontSize: 11, fontWeight: 700, letterSpacing: "0.08em", color: C.pureWhite, backgroundColor: C.crimson, borderRadius: 4, padding: "2px 8px", marginLeft: 6 }}>
                   -{discountPct(PRODUCTS.subscriptions.mentoring.price, PRODUCTS.subscriptions.mentoring.original)}%

@@ -3,8 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { usePageMeta } from "@/hooks/usePageMeta";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
 };
 
 type Post = {
@@ -62,7 +62,7 @@ export default function Blog() {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: C.bg }}>
       <nav style={{ position: "sticky", top: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px", backgroundColor: C.bg, borderBottom: `1px solid ${C.surface}` }}>
-        <button onClick={() => navigate("/")} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>
+        <button onClick={() => navigate("/")} style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>
           Códigos
         </button>
         <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
@@ -98,7 +98,7 @@ export default function Blog() {
       <main style={{ maxWidth: 640, margin: "0 auto", padding: "0 20px 80px" }}>
         {loading && (
           <div style={{ display: "flex", justifyContent: "center", padding: "60px 0" }}>
-            <div style={{ width: 28, height: 28, border: "3px solid #D9C9B0", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+            <div style={{ width: 28, height: 28, border: "3px solid #F1DCE2", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
           </div>
         )}
 
@@ -133,7 +133,7 @@ export default function Blog() {
                 <span style={{ fontSize: 11, color: C.muted }}>{post.read_min} {l.readMin}</span>
               </div>
               <h2
-                style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: "clamp(1.1rem,4vw,1.4rem)", fontWeight: 700, letterSpacing: "0.01em", color: C.white, marginBottom: 10, transition: "color 0.15s" }}
+                style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: "clamp(1.1rem,4vw,1.4rem)", fontWeight: 700, letterSpacing: "0.01em", color: C.white, marginBottom: 10, transition: "color 0.15s" }}
                 onMouseEnter={e => (e.currentTarget.style.color = C.crimson)}
                 onMouseLeave={e => (e.currentTarget.style.color = C.white)}
               >

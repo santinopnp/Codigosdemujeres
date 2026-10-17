@@ -5,17 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <title>Checkout seguro — CÓDIGOS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600..800&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:   #FBF7F1;
-      --cherry:  #C2506A;
+      --cream:   #FFF1F4;
+      --cherry:  #A12B52;
       --gold:    #D4A853;
-      --dark:    #3D2B1F;
-      --muted:   #7A6652;
-      --light:   #A89882;
+      --dark:    #4E0F22;
+      --muted:   #7A4A58;
+      --light:   #7A4A58;
       --border:  #EAE0D5;
       --surface: #FFFFFF;
       --error:   #D94F4F;
@@ -39,7 +39,7 @@
       margin-bottom: 28px;
     }
     .brand-name {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 1.6rem;
       font-weight: 700;
       letter-spacing: .12em;
@@ -57,7 +57,7 @@
     .card {
       background: var(--surface);
       border-radius: 16px;
-      box-shadow: 0 4px 32px rgba(194, 80, 106, .08);
+      box-shadow: 0 4px 32px rgba(161,43,82, .08);
       width: 100%;
       max-width: 440px;
       overflow: hidden;
@@ -65,7 +65,7 @@
 
     /* ── Product summary ───────────────────────── */
     .product-summary {
-      background: linear-gradient(135deg, #C2506A 0%, #A03A52 100%);
+      background: linear-gradient(135deg, #A12B52 0%, #A03A52 100%);
       padding: 22px 24px 20px;
       color: #fff;
     }
@@ -77,7 +77,7 @@
       margin-bottom: 4px;
     }
     .product-name {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 700;
       letter-spacing: .04em;
@@ -192,7 +192,7 @@
     }
     .dues-btn.active {
       border-color: var(--cherry);
-      background: rgba(194, 80, 106, .08);
+      background: rgba(161,43,82, .08);
       color: var(--cherry);
     }
 
@@ -204,7 +204,7 @@
       color: #fff;
       border: none;
       border-radius: 10px;
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 1rem;
       font-weight: 700;
       letter-spacing: .06em;
@@ -217,8 +217,8 @@
     .btn-pay:disabled { opacity: .6; cursor: not-allowed; }
 
     .form-error {
-      background: rgba(217, 79, 79, .09);
-      border: 1px solid rgba(217, 79, 79, .3);
+      background: rgba(217,79,79, .09);
+      border: 1px solid rgba(217,79,79, .3);
       color: var(--error);
       border-radius: 8px;
       padding: 10px 14px;
@@ -249,7 +249,7 @@
     /* Processing */
     .processing-icon {
       width: 48px; height: 48px;
-      background: rgba(194, 80, 106, .1);
+      background: rgba(161,43,82, .1);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 14px;
@@ -288,7 +288,7 @@
     /* Success */
     .success-icon {
       width: 56px; height: 56px;
-      background: rgba(76, 175, 125, .12);
+      background: rgba(76,175,125, .12);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 16px;
@@ -300,7 +300,7 @@
       border: 1.5px solid var(--cherry);
       border-radius: 8px;
       color: var(--cherry);
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: .9rem;
       font-weight: 700;
       text-decoration: none;
@@ -308,19 +308,19 @@
       margin-top: 16px;
       transition: all .18s;
     }
-    .btn-secondary:hover { background: rgba(194, 80, 106, .07); }
+    .btn-secondary:hover { background: rgba(161,43,82, .07); }
 
     /* Error */
     .error-icon {
       width: 56px; height: 56px;
-      background: rgba(217, 79, 79, .1);
+      background: rgba(217,79,79, .1);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 16px;
     }
 
     .state-title {
-      font-family: 'Playfair Display', Georgia, serif;
+      font-family: 'Fraunces', Georgia, serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: var(--dark);
@@ -350,7 +350,7 @@
     }
     .identity-avatar {
       width: 32px; height: 32px;
-      background: rgba(194, 80, 106, .12);
+      background: rgba(161,43,82, .12);
       border-radius: 50%;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
@@ -419,7 +419,7 @@
           <!-- Identity banner: shown when name/email are pre-filled from the previous step -->
           <div id="identity-banner" class="identity-banner" style="display:none">
             <div class="identity-avatar">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A12B52" stroke-width="2">
                 <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
               </svg>
             </div>
@@ -534,7 +534,7 @@
     <div id="state-processing" class="state">
       <div class="state-center">
         <div class="processing-icon">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A12B52" stroke-width="2">
             <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
           </svg>
         </div>
@@ -547,7 +547,7 @@
     <div id="state-3ds" class="state">
       <div class="threeds-container">
         <div class="threeds-header">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C2506A" stroke-width="2.5">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A12B52" stroke-width="2.5">
             <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/>
           </svg>
           Autenticación bancaria 3D Secure — por favor completa la verificación

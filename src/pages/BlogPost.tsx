@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 const C = {
-  bg: "#FBF7F1", surface: "#F3EBE0", border: "#D9C9B0",
-  crimson: "#C2506A", white: "#3D2B1F", secondary: "#7A6652", muted: "#A89882",
+  bg: "#FFF1F4", surface: "#F1DCE2", border: "#F1DCE2",
+  crimson: "#A12B52", white: "#4E0F22", secondary: "#7A4A58", muted: "#7A4A58",
 };
 
 type Post = {
@@ -22,8 +22,8 @@ type Post = {
 // Blog body CSS for HTML content from admin
 const articleBodyCSS = `
 .article-body p { font-size: 15px; color: ${C.secondary}; line-height: 1.85; margin: 0 0 20px; }
-.article-body h2 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.25rem; color: ${C.white}; margin: 32px 0 12px; letter-spacing: 0.01em; }
-.article-body h3 { font-family: 'Playfair Display', Georgia, serif; font-size: 1.1rem; color: ${C.white}; margin: 24px 0 8px; }
+.article-body h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; color: ${C.white}; margin: 32px 0 12px; letter-spacing: 0.01em; }
+.article-body h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.1rem; color: ${C.white}; margin: 24px 0 8px; }
 .article-body ul, .article-body ol { padding-left: 20px; margin: 0 0 20px; }
 .article-body li { font-size: 15px; color: ${C.secondary}; line-height: 1.85; margin-bottom: 6px; }
 .article-body em { font-style: italic; color: ${C.crimson}; }
@@ -65,7 +65,7 @@ export default function BlogPost() {
   if (loading) {
     return (
       <div style={{ minHeight: "100vh", backgroundColor: C.bg, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: 28, height: 28, border: "3px solid #D9C9B0", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+        <div style={{ width: 28, height: 28, border: "3px solid #F1DCE2", borderTopColor: C.crimson, borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
         <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
       </div>
     );
@@ -74,7 +74,7 @@ export default function BlogPost() {
   if (notFound || !post) {
     return (
       <div style={{ minHeight: "100vh", backgroundColor: C.bg, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16 }}>
-        <span style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 48, color: C.border }}>404</span>
+        <span style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 48, color: C.border }}>404</span>
         <button onClick={() => navigate("/blog")} className="btn-primary" style={{ maxWidth: 200 }}>← Blog</button>
       </div>
     );
@@ -89,7 +89,7 @@ export default function BlogPost() {
 
   const navBar = (
     <nav style={{ position: "sticky", top: 0, zIndex: 50, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "12px 20px", backgroundColor: C.bg, borderBottom: `1px solid ${C.surface}` }}>
-      <button onClick={() => navigate("/")} style={{ fontFamily: "'Playfair Display', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
+      <button onClick={() => navigate("/")} style={{ fontFamily: "'Fraunces', Georgia, serif", fontWeight: 700, fontSize: 20, letterSpacing: "0.02em", color: C.white, background: "none", border: "none", cursor: "pointer" }}>Códigos</button>
       <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
         <button onClick={() => navigate("/blog")} style={{ fontSize: 12, color: C.secondary, background: "none", border: "none", cursor: "pointer" }}>← Blog</button>
         <button onClick={() => setLang(lang === "es" ? "en" : lang === "en" ? "it" : "es")} style={{ fontSize: 11, fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", color: C.muted, background: "none", border: "none", cursor: "pointer" }}>
@@ -168,7 +168,7 @@ export default function BlogPost() {
         <div className="article-body" dangerouslySetInnerHTML={{ __html: body }} />
 
         <div style={{ marginTop: 48, padding: 24, backgroundColor: C.surface, borderLeft: `3px solid ${C.crimson}` }}>
-          <p style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.white, letterSpacing: "0.01em", marginBottom: 8 }}>
+          <p style={{ fontFamily: "'Fraunces', Georgia, serif", fontSize: 18, fontWeight: 700, color: C.white, letterSpacing: "0.01em", marginBottom: 8 }}>
             {lang === "it" ? "Pronta per i codici?" : lang === "es" ? "¿Lista para los códigos?" : "Ready for the codes?"}
           </p>
           <p style={{ fontSize: 13, color: C.secondary, marginBottom: 16, lineHeight: 1.6 }}>

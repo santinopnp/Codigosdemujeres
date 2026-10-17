@@ -208,10 +208,10 @@ function StepBar({ step, t }: { step: Step; t: typeof T["es"] }) {
                   </svg>
                 ) : n}
               </div>
-              <span style={{ color: active || done ? "#C2506A" : "#A89882", fontSize: "0.625rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</span>
+              <span style={{ color: active || done ? "#A12B52" : "#7A4A58", fontSize: "0.625rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</span>
             </div>
             {i < steps.length - 1 && (
-              <div style={{ flex: 1, height: 2, backgroundColor: step > n ? "#C2506A" : "#D9C9B0", margin: "0 0.5rem", marginBottom: "1.25rem" }} />
+              <div style={{ flex: 1, height: 2, backgroundColor: step > n ? "#A12B52" : "#F1DCE2", margin: "0 0.5rem", marginBottom: "1.25rem" }} />
             )}
           </React.Fragment>
         );
@@ -228,16 +228,16 @@ function OrderSummary({ format, lang, t }: { format: Format; lang: Lang; t: type
   const label = getProductLabel(format, lang);
   return (
     <div className="card p-4 mb-6">
-      <p className="text-xs text-textSecondary mb-3" style={{ letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Playfair Display', Georgia, serif" }}>{t.order_summary}</p>
+      <p className="text-xs text-textSecondary mb-3" style={{ letterSpacing: "0.1em", textTransform: "uppercase", fontFamily: "'Fraunces', Georgia, serif" }}>{t.order_summary}</p>
       <div className="flex justify-between items-center">
         <div>
-          <p className="font-editorial text-sm" style={{ color: "#3D2B1F" }}>Códigos</p>
-          <p className="text-xs mt-0.5" style={{ color: "#7A6652" }}>{label}</p>
+          <p className="font-editorial text-sm" style={{ color: "#4E0F22" }}>Códigos</p>
+          <p className="text-xs mt-0.5" style={{ color: "#7A4A58" }}>{label}</p>
         </div>
         <div style={{ textAlign: "right" }}>
-          <p className="text-xs" style={{ color: "#7A6652", textDecoration: "line-through" }}>{origPrice}</p>
-          <p className="font-editorial text-lg" style={{ color: "#C2506A" }}>${price.toFixed(2)}</p>
-          {localPrice && <p className="text-xs" style={{ color: "#7A6652" }}>≈ {localPrice}</p>}
+          <p className="text-xs" style={{ color: "#7A4A58", textDecoration: "line-through" }}>{origPrice}</p>
+          <p className="font-editorial text-lg" style={{ color: "#A12B52" }}>${price.toFixed(2)}</p>
+          {localPrice && <p className="text-xs" style={{ color: "#7A4A58" }}>≈ {localPrice}</p>}
         </div>
       </div>
     </div>
@@ -263,13 +263,13 @@ function ShareBlock({ t, lang }: { t: typeof T["es"]; lang: Lang }) {
   if (shared) return null;
 
   return (
-    <div className="card p-5 mb-6 text-center" style={{ borderColor: "#C2506A" }}>
-      <p className="font-editorial text-base mb-1" style={{ color: "#3D2B1F" }}>{t.share_heading}</p>
-      <p className="text-xs mb-4" style={{ color: "#7A6652" }}>{t.share_body}</p>
+    <div className="card p-5 mb-6 text-center" style={{ borderColor: "#A12B52" }}>
+      <p className="font-editorial text-base mb-1" style={{ color: "#4E0F22" }}>{t.share_heading}</p>
+      <p className="text-xs mb-4" style={{ color: "#7A4A58" }}>{t.share_body}</p>
 
       <div
         className="p-3 mb-4 text-xs text-left"
-        style={{ backgroundColor: "#FBF7F1", borderLeft: "3px solid #C2506A", color: "#7A6652", lineHeight: 1.6 }}
+        style={{ backgroundColor: "#FFF1F4", borderLeft: "3px solid #A12B52", color: "#7A4A58", lineHeight: 1.6 }}
       >
         "{t.share_text}"
       </div>
@@ -287,9 +287,9 @@ function ShareBlock({ t, lang }: { t: typeof T["es"]; lang: Lang }) {
           style={{
             flex: 1,
             background: "transparent",
-            border: "2px solid #D9C9B0",
-            color: "#A89882",
-            fontFamily: "'Playfair Display', Georgia, serif",
+            border: "2px solid #F1DCE2",
+            color: "#7A4A58",
+            fontFamily: "'Fraunces', Georgia, serif",
             fontWeight: 600,
             fontSize: "0.8125rem",
             letterSpacing: "0.08em",
@@ -721,17 +721,17 @@ export default function StoreCheckout() {
 
   // ── Render ──────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#FBF7F1" }}>
+    <div className="min-h-screen" style={{ backgroundColor: "#FFF1F4" }}>
 
       {/* NAV */}
-      <nav className="sticky top-0 z-50 flex items-center justify-between px-5 py-3" style={{ backgroundColor: "#FBF7F1", borderBottom: "1px solid #F3EBE0" }}>
-        <span className="font-editorial text-xl" style={{ color: "#C2506A", letterSpacing: "0.12em" }}>Códigos</span>
+      <nav className="sticky top-0 z-50 flex items-center justify-between px-5 py-3" style={{ backgroundColor: "#FFF1F4", borderBottom: "1px solid #F1DCE2" }}>
+        <span className="font-editorial text-xl" style={{ color: "#A12B52", letterSpacing: "0.12em" }}>Códigos</span>
         <div className="flex items-center gap-3">
           {step < 3 && (
             <button
               onClick={() => step === 1 ? navigate("/") : setStep(1)}
               className="text-xs font-medium uppercase tracking-widest"
-              style={{ color: "#7A6652", background: "none", border: "none", cursor: "pointer" }}
+              style={{ color: "#7A4A58", background: "none", border: "none", cursor: "pointer" }}
             >
               {t.back}
             </button>
@@ -793,7 +793,7 @@ export default function StoreCheckout() {
                 onKeyDown={e => e.key === "Enter" && handleStep1()}
                 autoComplete="email"
               />
-              <p className="mt-2 text-xs" style={{ color: "#A89882" }}>{t.email_hint}</p>
+              <p className="mt-2 text-xs" style={{ color: "#7A4A58" }}>{t.email_hint}</p>
             </div>
 
             {error && <p className="mb-4 text-xs" style={{ color: "#C44D4D" }}>{error}</p>}
@@ -808,14 +808,14 @@ export default function StoreCheckout() {
 
             {/* 3DS 1.0 — bank authentication overlay */}
             {cardPayStep === "3ds" && threeDsUrl && (
-              <div style={{ position: "fixed", inset: 0, backgroundColor: "#FBF7F1", zIndex: 200, display: "flex", flexDirection: "column" }}>
-                <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid #F3EBE0", display: "flex", alignItems: "center", gap: "1rem" }}>
-                  <div style={{ width: 32, height: 32, border: "3px solid #D9C9B0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin 0.7s linear infinite", flexShrink: 0 }} />
+              <div style={{ position: "fixed", inset: 0, backgroundColor: "#FFF1F4", zIndex: 200, display: "flex", flexDirection: "column" }}>
+                <div style={{ padding: "1rem 1.25rem", borderBottom: "1px solid #F1DCE2", display: "flex", alignItems: "center", gap: "1rem" }}>
+                  <div style={{ width: 32, height: 32, border: "3px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite", flexShrink: 0 }} />
                   <div>
-                    <p style={{ color: "#3D2B1F", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Playfair Display', Georgia, serif" }}>
+                    <p style={{ color: "#4E0F22", fontWeight: 700, fontSize: "0.9rem", fontFamily: "'Fraunces', Georgia, serif" }}>
                       {lang === "en" ? "Bank authentication" : lang === "it" ? "Autenticazione bancaria" : lang === "pt" ? "Autenticação bancária" : "Autenticación bancaria"}
                     </p>
-                    <p style={{ color: "#7A6652", fontSize: "0.72rem" }}>
+                    <p style={{ color: "#7A4A58", fontSize: "0.72rem" }}>
                       {lang === "en" ? "Complete the verification in the window below." : lang === "it" ? "Completa la verifica nella finestra qui sotto." : lang === "pt" ? "Complete a verificação na janela abaixo." : "Completa la verificación en la ventana de abajo."}
                     </p>
                   </div>
@@ -831,9 +831,9 @@ export default function StoreCheckout() {
 
             {/* Processing overlay (tokenizing / charging) */}
             {(cardPayStep === "tokenizing" || cardPayStep === "charging") && (
-              <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(251,247,241,0.92)", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", minHeight: 280 }}>
-                <div style={{ width: 40, height: 40, border: "3px solid #D9C9B0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
-                <p style={{ color: "#7A6652", fontSize: "0.85rem" }}>{processingMsg}</p>
+              <div style={{ position: "absolute", inset: 0, backgroundColor: "rgba(255,241,244,0.92)", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "1rem", minHeight: 280 }}>
+                <div style={{ width: 40, height: 40, border: "3px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+                <p style={{ color: "#7A4A58", fontSize: "0.85rem" }}>{processingMsg}</p>
               </div>
             )}
 
@@ -925,7 +925,7 @@ export default function StoreCheckout() {
             </button>
 
             {/* Trust badges */}
-            <div className="flex justify-center gap-6 mt-5 text-xs" style={{ color: "#A89882" }}>
+            <div className="flex justify-center gap-6 mt-5 text-xs" style={{ color: "#7A4A58" }}>
               <span className="flex items-center gap-1.5">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="square" strokeLinejoin="miter" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 {t.guarantee}
@@ -942,20 +942,20 @@ export default function StoreCheckout() {
         {step === 3 && (
           <div className="flex flex-col items-center pt-10" style={{ animation: "fadeIn 0.3s ease" }}>
             {/* Success icon or verifying spinner */}
-            <div className="flex items-center justify-center mb-6" style={{ width: 72, height: 72, backgroundColor: "#F3EBE0", border: `2px solid ${paymentVerified ? "#C2506A" : "#D9C9B0"}` }}>
+            <div className="flex items-center justify-center mb-6" style={{ width: 72, height: 72, backgroundColor: "#F1DCE2", border: `2px solid ${paymentVerified ? "#A12B52" : "#F1DCE2"}` }}>
               {paymentVerified ? (
-                <svg className="w-9 h-9" style={{ color: "#C2506A" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg className="w-9 h-9" style={{ color: "#A12B52" }} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="square" strokeLinejoin="miter" d="M5 13l4 4L19 7" />
                 </svg>
               ) : (
-                <div style={{ width: 36, height: 36, border: "3px solid #D9C9B0", borderTopColor: "#C2506A", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
+                <div style={{ width: 36, height: 36, border: "3px solid #F1DCE2", borderTopColor: "#A12B52", borderRadius: "50%", animation: "spin 0.7s linear infinite" }} />
               )}
             </div>
 
             <h1 className="mb-4 text-center" style={{ fontSize: "1.75rem" }}>
               {paymentVerified ? t.confirm_title : (lang === "en" ? "Verifying payment…" : lang === "it" ? "Verifica pagamento…" : lang === "pt" ? "Verificando pagamento…" : "Verificando pago…")}
             </h1>
-            <p className="text-base mb-2 text-center" style={{ color: "#7A6652", maxWidth: 320 }}>
+            <p className="text-base mb-2 text-center" style={{ color: "#7A4A58", maxWidth: 320 }}>
               {paymentVerified
                 ? productType === "coaching"
                   ? (lang === "en" ? "Dayana will contact you soon to schedule your session." : lang === "it" ? "Dayana ti contatterà presto per pianificare la sessione." : lang === "pt" ? "Dayana entrará em contato em breve para agendar sua sessão." : "Dayana se pondrá en contacto contigo pronto para agendar la sesión.")
@@ -964,7 +964,7 @@ export default function StoreCheckout() {
                   : t.confirm_body
                 : (lang === "en" ? "Please wait a moment." : lang === "it" ? "Attendi un momento." : lang === "pt" ? "Aguarde um momento." : "Espera un momento.")}
             </p>
-            <p className="text-xs mb-8 text-center" style={{ color: "#A89882" }}>
+            <p className="text-xs mb-8 text-center" style={{ color: "#7A4A58" }}>
               {paymentVerified
                 ? productType === "coaching"
                   ? (lang === "en" ? "Check your inbox for booking confirmation." : lang === "it" ? "Controlla la tua email per la conferma della prenotazione." : lang === "pt" ? "Verifique seu e-mail para a confirmação de reserva." : "Revisa tu correo para la confirmación de reserva.")
@@ -996,7 +996,7 @@ export default function StoreCheckout() {
                   {t.view_order}
                 </button>
               ) : null}
-              <button className="btn-primary" style={libraryToken ? { background: "transparent", border: "2px solid #D9C9B0", color: "#A89882" } : {}} onClick={() => navigate("/")}>{t.confirm_cta}</button>
+              <button className="btn-primary" style={libraryToken ? { background: "transparent", border: "2px solid #F1DCE2", color: "#7A4A58" } : {}} onClick={() => navigate("/")}>{t.confirm_cta}</button>
             </div>
           </div>
         )}
@@ -1004,7 +1004,7 @@ export default function StoreCheckout() {
 
       {/* MOBILE STICKY CTA (step 1 & 2 only) */}
       {step < 3 && (
-        <div className="sm:hidden fixed bottom-0 left-0 right-0" style={{ backgroundColor: "#FBF7F1", borderTop: "1px solid #F3EBE0", padding: "1rem", zIndex: 40 }}>
+        <div className="sm:hidden fixed bottom-0 left-0 right-0" style={{ backgroundColor: "#FFF1F4", borderTop: "1px solid #F1DCE2", padding: "1rem", zIndex: 40 }}>
           <button
             className="btn-primary"
             onClick={step === 1 ? handleStep1 : handleStep2}
