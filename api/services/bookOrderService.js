@@ -1,17 +1,8 @@
 "use strict";
 const crypto     = require("crypto");
 const nodemailer = require("nodemailer");
-const Stripe     = require("stripe");
 const PDFDocument = require("pdfkit");
 const model      = require("../models/bookOrderModel");
-
-// ─── Stripe singleton ─────────────────────────────────────────────────────────
-let _stripe;
-function stripe() {
-  if (!process.env.STRIPE_SECRET_KEY) throw new Error("Stripe not configured (on hold)");
-  if (!_stripe) _stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: "2024-06-20" });
-  return _stripe;
-}
 
 // ─── Email (singleton transport — one pool per process) ───────────────────────
 const _mailer = nodemailer.createTransport({
@@ -24,7 +15,6 @@ const _mailer = nodemailer.createTransport({
 // Human-readable label for each payment provider (used in invoice + email)
 function paymentProviderLabel(provider, lang = "es") {
   const labels = {
-    stripe:  { es: "Tarjeta · Stripe",      en: "Card · Stripe" },
     epayco:  { es: "Tarjeta · ePayco",      en: "Card · ePayco" },
     usdt:    { es: "Cripto · USDT (Daimo)", en: "Crypto · USDT (Daimo)" },
     daimo:   { es: "Cripto · USDT (Daimo)", en: "Crypto · USDT (Daimo)" },
@@ -491,7 +481,7 @@ async function sendConfirmationEmail(order, lang = "es") {
       </tr>
       <tr>
         <td style="padding:5px 0;">${isEs ? "Método de pago" : "Payment method"}</td>
-        <td style="text-align:right;color:#3D2B1F;">${isEs ? "Tarjeta · Stripe" : "Card · Stripe"}</td>
+        <td style="text-align:right;color:#3D2B1F;">${paymentProviderLabel(order.payment_provider || "epayco", lang)}</td>
       </tr>
       <tr style="border-top:1px solid #F3EBE0;">
         <td style="padding:10px 0 4px;font-weight:700;color:#3D2B1F;">${isEs ? "Total pagado" : "Total paid"}</td>
@@ -755,58 +745,6 @@ async function handleEpaycoWebhook(body) {
   return { processed: true };
 }
 
-// ─── Stripe Checkout ──────────────────────────────────────────────────────────
-async function createStripeSession(order, lang = "es") {
-  const clientUrl = process.env.CLIENT_URL;
-  const session = await stripe().checkout.sessions.create({
-    mode:                 "payment",
-    payment_method_types: ["card"],
-    customer_email:       order.email,
-    line_items: [{
-      price_data: {
-        currency:     "usd",
-        unit_amount:  Math.round(order.amount_usd * 100),
-        product_data: {
-          name:        `CÓDIGOS — ${formatLabel(order.format, lang)}`,
-          description: "Dayana Guerrero",
-        },
-      },
-      quantity: 1,
-    }],
-    metadata: {
-      orderId: String(order.id),
-      lang,
-    },
-    success_url: `${clientUrl}/checkout?confirmed=1&format=${order.format}&lang=${lang}&orderId=${order.id}`,
-    cancel_url:  `${clientUrl}/checkout?format=${order.format}&lang=${lang}`,
-    locale: lang === "en" ? "en" : "es",
-  });
-  return session.url;
-}
-
-// ─── Stripe webhook handler ───────────────────────────────────────────────────
-async function handleStripeWebhook(rawBody, sigHeader) {
-  const secret = process.env.STRIPE_WEBHOOK_SECRET ?? "";
-  const event  = stripe().webhooks.constructEvent(rawBody, sigHeader, secret);
-
-  if (event.type === "checkout.session.completed") {
-    const session = event.data.object;
-    const orderId = session.metadata?.orderId;
-    const lang    = session.metadata?.lang ?? "es";
-    if (orderId) {
-      const order = await model.markPaid(orderId, { providerRef: session.id, provider: "stripe" });
-      if (order) {
-        sendConfirmationEmail(order, lang).catch(console.error);
-        if (getProductType(order.format) === "book") {
-          sendDayanaNotification(order, lang).catch(console.error);
-          require("./metaCAPIService").trackPurchase(order).catch(() => {});
-          require("./whatsappService").notifySale(order).catch(() => {});
-        }
-      }
-    }
-  }
-}
-
 // ─── Exported service functions ───────────────────────────────────────────────
 async function createOrder({ email, format, paymentMethod, lang = "es", utmSource, utmMedium, utmCampaign, firstName = "", lastName = "" }) {
   const order = await model.create({ email, format, paymentMethod, lang, utmSource, utmMedium, utmCampaign });
@@ -884,7 +822,6 @@ async function sendLeadEmail({ email, lang = "es" }) {
 module.exports = {
   createOrder,
   processCharge,
-  handleStripeWebhook,
   handleEpaycoWebhook,
   resolveDownload,
   sendLeadEmail,

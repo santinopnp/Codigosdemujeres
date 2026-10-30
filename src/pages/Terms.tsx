@@ -23,7 +23,7 @@ const CONTENT = {
       },
       {
         h: "3. Precios y pagos",
-        p: "Todos los precios están expresados en dólares estadounidenses (USD). Los pagos se procesan de forma segura a través de Stripe (tarjeta de crédito/débito). El precio mostrado en el momento de la compra es el precio final.",
+        p: "Todos los precios están expresados en dólares estadounidenses (USD). Los pagos se procesan de forma segura a través de nuestra pasarela de pago (tarjeta de crédito/débito). El precio mostrado en el momento de la compra es el precio final.",
       },
       {
         h: "4. Garantía de devolución",
@@ -66,7 +66,7 @@ const CONTENT = {
       },
       {
         h: "3. Pricing and payments",
-        p: "All prices are in US dollars (USD). Payments are securely processed through Stripe (credit/debit card). The price shown at the time of purchase is the final price.",
+        p: "All prices are in US dollars (USD). Payments are securely processed through our payment gateway (credit/debit card). The price shown at the time of purchase is the final price.",
       },
       {
         h: "4. Money-back guarantee",
@@ -109,7 +109,7 @@ const CONTENT = {
       },
       {
         h: "3. Prezzi e pagamenti",
-        p: "Tutti i prezzi sono espressi in dollari statunitensi (USD). I pagamenti vengono elaborati in modo sicuro tramite Stripe (carta di credito/debito). Il prezzo mostrato al momento dell'acquisto è il prezzo definitivo.",
+        p: "Tutti i prezzi sono espressi in dollari statunitensi (USD). I pagamenti vengono elaborati in modo sicuro tramite il nostro gateway di pagamento (carta di credito/debito). Il prezzo mostrato al momento dell'acquisto è il prezzo definitivo.",
       },
       {
         h: "4. Garanzia di rimborso",

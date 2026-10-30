@@ -3349,7 +3349,7 @@ function DocumentosPanel({ token }: { token: string }) {
             <label style={{ display: "block", fontSize: 11, color: C.muted, marginBottom: 4 }}>Nombre / etiqueta</label>
             <input
               value={label} onChange={e => setLabel(e.target.value)}
-              placeholder="ej. Factura Stripe Mayo 2026"
+              placeholder="ej. Factura ePayco Mayo 2026"
               style={{ width: "100%", padding: "8px 10px", background: C.bg, color: C.white, border: `1px solid ${C.border}`, fontSize: 13, boxSizing: "border-box" }}
             />
           </div>
@@ -3454,13 +3454,6 @@ function CredencialesPanel() {
       rows: [
         { label: "Email", val: "daya@codigosdemujeres.com", k: "email-email" },
         { label: "Password", val: "Mujeres2026#", k: "email-pass", masked: true },
-      ],
-    },
-    {
-      icon: "💳", title: "Stripe — Pagos", link: "https://dashboard.stripe.com", linkLabel: "Abrir Stripe Dashboard →",
-      rows: [
-        { label: "Email", val: "daya@codigosdemujeres.com", k: "stripe-email" },
-        { label: "Password", val: "Mujeres2026#", k: "stripe-pass", masked: true },
       ],
     },
     {

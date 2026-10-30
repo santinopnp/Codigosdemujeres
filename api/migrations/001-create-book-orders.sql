@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS book_orders (
   format              TEXT        NOT NULL CHECK (format IN ('ebook', 'audio', 'bundle')),
   amount_usd          NUMERIC(8,2) NOT NULL,
   payment_method      TEXT        NOT NULL CHECK (payment_method IN ('card', 'crypto')),
-  payment_provider    TEXT        CHECK (payment_provider IN ('epayco', 'daimo', 'stripe')),
+  payment_provider    TEXT        CHECK (payment_provider IN ('epayco', 'daimo')),
   status              TEXT        NOT NULL DEFAULT 'pending'
                                   CHECK (status IN ('pending', 'paid', 'failed', 'refunded')),
   download_token      UUID        UNIQUE DEFAULT gen_random_uuid(),

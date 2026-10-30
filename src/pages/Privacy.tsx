@@ -15,7 +15,7 @@ const CONTENT = {
     sections: [
       {
         h: "1. Información que recopilamos",
-        p: "Al realizar una compra, recopilamos tu nombre, correo electrónico y datos de pago procesados por Stripe. No almacenamos datos de tarjetas de crédito en nuestros servidores.",
+        p: "Al realizar una compra, recopilamos tu nombre, correo electrónico y datos de pago procesados por nuestra pasarela de pago. No almacenamos datos de tarjetas de crédito en nuestros servidores.",
       },
       {
         h: "2. Uso de la información",
@@ -23,7 +23,7 @@ const CONTENT = {
       },
       {
         h: "3. Proveedores de pago",
-        p: "Los pagos con tarjeta son procesados por Stripe, una plataforma de pagos certificada PCI DSS Nivel 1. Stripe tiene su propia política de privacidad.",
+        p: "Los pagos con tarjeta son procesados por ePayco, una plataforma de pagos certificada PCI DSS. ePayco tiene su propia política de privacidad.",
       },
       {
         h: "4. Retención de datos",
@@ -50,7 +50,7 @@ const CONTENT = {
     sections: [
       {
         h: "1. Information we collect",
-        p: "When you make a purchase, we collect your name, email address, and payment data processed by Stripe. We do not store credit card data on our servers.",
+        p: "When you make a purchase, we collect your name, email address, and payment data processed by our payment gateway. We do not store credit card data on our servers.",
       },
       {
         h: "2. Use of information",
@@ -58,7 +58,7 @@ const CONTENT = {
       },
       {
         h: "3. Payment providers",
-        p: "Card payments are processed by Stripe, a PCI DSS Level 1 certified payment platform. Stripe has its own privacy policy.",
+        p: "Card payments are processed by ePayco, a PCI DSS certified payment platform. ePayco has its own privacy policy.",
       },
       {
         h: "4. Data retention",
@@ -85,7 +85,7 @@ const CONTENT = {
     sections: [
       {
         h: "1. Dati che raccogliamo",
-        p: "Quando effettui un acquisto, raccogliamo il tuo nome, l'indirizzo email e i dati di pagamento elaborati da Stripe. Non conserviamo i dati delle carte di credito sui nostri server.",
+        p: "Quando effettui un acquisto, raccogliamo il tuo nome, l'indirizzo email e i dati di pagamento elaborati dal nostro gateway di pagamento. Non conserviamo i dati delle carte di credito sui nostri server.",
       },
       {
         h: "2. Utilizzo delle informazioni",
@@ -93,7 +93,7 @@ const CONTENT = {
       },
       {
         h: "3. Provider di pagamento",
-        p: "I pagamenti con carta sono elaborati da Stripe, una piattaforma certificata PCI DSS Livello 1. Stripe dispone di una propria informativa sulla privacy.",
+        p: "I pagamenti con carta sono elaborati da ePayco, una piattaforma certificata PCI DSS. ePayco dispone di una propria informativa sulla privacy.",
       },
       {
         h: "4. Conservazione dei dati",

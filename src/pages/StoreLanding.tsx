@@ -78,7 +78,7 @@ const T = {
     guarantee_desc: "Si no te encanta, te devolvemos el 100% de tu dinero. Sin preguntas. Escríbenos a hello@codigosdemujeres.com.",
 
     // Trust
-    trust_stripe: "Pago seguro y encriptado",
+    trust_secure: "Pago seguro y encriptado",
     trust_instant: "Acceso inmediato",
     trust_refund: "Garantía 7 días",
 
@@ -157,7 +157,7 @@ const T = {
     guarantee_title: "7-DAY GUARANTEE",
     guarantee_desc: "If you don't love it, we'll refund 100% of your money. No questions asked. Email hello@codigosdemujeres.com.",
 
-    trust_stripe: "Secure encrypted payment",
+    trust_secure: "Secure encrypted payment",
     trust_instant: "Instant access",
     trust_refund: "7-day guarantee",
 
@@ -234,7 +234,7 @@ const T = {
     guarantee_title: "GARANZIA DI 7 GIORNI",
     guarantee_desc: "Se non ti entusiasma, ti rimborsiamo il 100% della spesa. Senza domande. Scrivici a hello@codigosdemujeres.com.",
 
-    trust_stripe: "Pagamento sicuro e criptato",
+    trust_secure: "Pagamento sicuro e criptato",
     trust_instant: "Accesso immediato",
     trust_refund: "Garanzia 7 giorni",
 
@@ -311,7 +311,7 @@ const T = {
     guarantee_title: "GARANTIA DE 7 DIAS",
     guarantee_desc: "Se não amar, devolvemos 100% do seu dinheiro. Sem perguntas. Escreva para hello@codigosdemujeres.com.",
 
-    trust_stripe: "Pagamento seguro e criptografado",
+    trust_secure: "Pagamento seguro e criptografado",
     trust_instant: "Acesso imediato",
     trust_refund: "Garantia 7 dias",
 
@@ -780,7 +780,7 @@ export default function StoreLanding() {
 
           {/* Trust signals */}
           <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 20, flexWrap: "wrap" }}>
-            {[`🔒 ${t.trust_stripe}`, `⚡ ${t.trust_instant}`, `↩ ${t.trust_refund}`].map((item, i) => (
+            {[`🔒 ${t.trust_secure}`, `⚡ ${t.trust_instant}`, `↩ ${t.trust_refund}`].map((item, i) => (
               <span key={i} style={{ fontSize: 12, color: C.muted }}>{item}</span>
             ))}
           </div>

@@ -58,7 +58,7 @@ app.use(helmet({
       styleSrc:    ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc:     ["'self'", "https://fonts.gstatic.com"],
       imgSrc:      ["'self'", "data:", "https://www.facebook.com", "https://graph.facebook.com", "blob:"],
-      connectSrc:  ["'self'", "https://api.anthropic.com", "https://api.stripe.com",
+      connectSrc:  ["'self'", "https://api.anthropic.com",
                     "https://api.secure.epayco.co", "https://secure.epayco.co"],
       // frameSrc must allow HTTPS iframes for 3DS 1.0 bank redirect (bank URLs are dynamic)
       frameSrc:    ["'self'", "https:"],
@@ -68,7 +68,7 @@ app.use(helmet({
       upgradeInsecureRequests: [],
     },
   },
-  crossOriginEmbedderPolicy: false, // allow embedding from Stripe/Facebook iframes
+  crossOriginEmbedderPolicy: false, // allow embedding from ePayco/Facebook iframes
 }));
 app.use(cors({ origin: process.env.CLIENT_URL ?? "http://localhost:3100", credentials: true }));
 
@@ -116,8 +116,6 @@ const chatLimiter = rateLimit({
 app.use("/api/", apiLimiter);
 app.use("/api/store/order", orderLimiter);
 
-// Stripe needs raw bytes for webhook signature verification
-app.use("/api/store/webhook/stripe", express.raw({ type: "application/json" }));
 // ePayco sends confirmation as application/x-www-form-urlencoded
 app.use("/api/store/webhook/epayco", express.urlencoded({ extended: false }));
 // All other routes use JSON bodies
@@ -183,21 +181,6 @@ app.post("/api/store/webhook/epayco", async (req, res) => {
     console.error("[store] epayco webhook error:", err.message);
     // Always 200 — ePayco retries on non-200 which can cause duplicate fulfillments
     res.status(200).json({ error: err.message });
-  }
-});
-
-// ─── Stripe webhook (on hold — no Stripe account yet) ────────────────────────
-app.post("/api/store/webhook/stripe", async (req, res) => {
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return res.status(503).json({ error: "Stripe not configured" });
-  }
-  try {
-    const sig = req.headers["stripe-signature"] ?? "";
-    await service.handleStripeWebhook(req.body, sig);
-    res.json({ success: true });
-  } catch (err) {
-    console.error("[store] stripe webhook error:", err.message);
-    res.status(400).json({ error: err.message });
   }
 });
 
@@ -448,7 +431,7 @@ app.get("/api/store/download/:token", async (req, res) => {
   }
 });
 
-// ─── Stripe: Poll checkout status (frontend polls after returning from Stripe) ──
+// ─── Poll checkout status (frontend polls after payment) ─────────────────────
 app.get("/api/store/checkout/:orderId/status", async (req, res) => {
   res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate");
   res.setHeader("Pragma", "no-cache");
